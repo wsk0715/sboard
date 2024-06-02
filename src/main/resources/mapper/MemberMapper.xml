@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.sboard.member.mapper.MemberMapper">
+
+  <!-- Result Mapping -->
+  <resultMap id="MemberResultMap" type="Member">
+    <result property="memberNo" column="m_no"/>
+    <result property="memberId" column="m_id"/>
+    <result property="memberPw" column="m_pw"/>
+    <result property="memberName" column="m_name"/>
+    <result property="memberEmail" column="m_email"/>
+  </resultMap>
+
+  <select id="get" parameterType="int" resultMap="MemberResultMap">
+    SELECT m_no, m_id, m_pw, m_name, m_email
+    FROM tb_member
+    WHERE m_no = #{memberNo};
+  </select>
+
+  <select id="getAll" resultMap="MemberResultMap">
+    SELECT m_no, m_id, m_pw, m_name, m_email
+    FROM tb_member;
+  </select>
+
+  <select id="getLastIndex" resultType="int">
+    SELECT COALESCE(MAX(m_no) + 1, 1)
+    FROM tb_member;
+  </select>
+
+  <insert id="register" parameterType="Member">
+    INSERT INTO tb_member(m_no, m_id, m_pw, m_name, m_email)
+    VALUES (#{memberNo}, #{memberId}, #{memberPw}, #{memberName}, #{memberEmail});
+  </insert>
+
+  <update id="modify" parameterType="Member">
+    UPDATE tb_member
+    SET m_id=#{memberId},
+        m_pw=#{memberPw},
+        m_name=#{memberName},
+        m_email=#{memberEmail}
+    WHERE m_no = #{memberNo};
+  </update>
+
+  <delete id="delete" parameterType="int">
+    DELETE
+    FROM tb_member
+    WHERE m_no = #{memberNo};
+  </delete>
+
+</mapper>
