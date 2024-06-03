@@ -10,7 +10,7 @@
     <result property="memberId" column="m_id"/>
     <result property="boardTitle" column="b_title"/>
     <result property="boardBody" column="b_body"/>
-    <result property="boardEmail" column="b_email"/>
+    <result property="boardDate" column="b_date"/>
   </resultMap>
 
   <select id="get" parameterType="int" resultMap="BoardResultMap">

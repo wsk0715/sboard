@@ -30,7 +30,7 @@ public class BoardService {
 
 	public void insert(Board board) {
 		boardMapper.insert(board);
-		System.out.println("register: " + board);
+		System.out.println("insert: " + board);
 	}
 
 	public void modify(Board board) {
