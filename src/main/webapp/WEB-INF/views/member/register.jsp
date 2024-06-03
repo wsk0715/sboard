@@ -7,14 +7,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>Register</title>
+	<title>회원 가입</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>회원가입 화면</h1>
+<h1>회원 가입</h1>
 <form action="${path}/member/register" method="post">
 	<div>
 		<table>

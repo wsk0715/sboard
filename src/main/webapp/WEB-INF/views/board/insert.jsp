@@ -7,14 +7,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>Register</title>
+	<title>게시글 작성</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>게시글 작성 화면</h1>
+<h1>게시글 작성</h1>
 <form action="${path}/board/insert" method="post">
 	<div>
 		<table>

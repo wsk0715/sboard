@@ -6,17 +6,17 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- header start-->
 <h1>
-	<a href="${path}/">Hello world!</a>
+	<a href="${path}/">sboard</a>
 </h1>
 <ul>
 	<li>
 		<a href="${path}/member/login">로그인</a>
 	</li>
 	<li>
-		<a href="${path}/member/register">회원가입</a>
+		<a href="${path}/member/register">회원 가입</a>
 	</li>
 	<li>
-		<a href="${path}/member/list">회원목록</a>
+		<a href="${path}/member/list">회원 목록</a>
 	</li>
 	<li>
 		<a href="${path}/board/list">글 목록</a>

@@ -7,14 +7,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>List</title>
+	<title>회원 목록</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>회원목록</h1>
+<h1>회원 목록</h1>
 <table>
 	<tr>
 		<td>회원번호</td>

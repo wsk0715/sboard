@@ -7,14 +7,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>Board - Detail</title>
+	<title>게시글 상세</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>게시글 상세 화면</h1>
+<h1>게시글 상세</h1>
 <div>
 	<table>
 		<tr>
