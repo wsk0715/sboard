@@ -43,4 +43,18 @@ public class BoardController {
 		return "redirect:list";
 	}
 
+	@GetMapping("/modify")
+	public String getBoardModify(int boardNo, Model model) {
+		model.addAttribute("board", boardService.get(boardNo));
+
+		return "board/modify";
+	}
+
+	@PostMapping("/modify")
+	public String postBoardModify(Board board) {
+		boardService.modify(board);
+
+		return "redirect:list";
+	}
+
 }

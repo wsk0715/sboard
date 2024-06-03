@@ -28,4 +28,11 @@
     VALUES (#{boardNo}, #{memberId}, #{boardTitle}, #{boardBody});
   </insert>
 
+  <update id="modify" parameterType="Board">
+    UPDATE tb_board
+    SET b_title=#{boardTitle},
+        b_body=#{boardBody}
+    WHERE b_no = #{boardNo};
+  </update>
+
 </mapper>

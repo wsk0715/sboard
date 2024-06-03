@@ -29,4 +29,9 @@ public class BoardService {
 		System.out.println("register: " + board);
 	}
 
+	public void modify(Board board) {
+		boardMapper.modify(board);
+		System.out.println("modify: " + board);
+	}
+
 }
