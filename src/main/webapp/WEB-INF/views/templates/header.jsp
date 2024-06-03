@@ -10,6 +10,12 @@
 </h1>
 <ul>
 	<li>
+		<a href="${path}/member/login">로그인</a>
+	</li>
+	<li>
+		<a href="${path}/member/register">회원가입</a>
+	</li>
+	<li>
 		<a href="${path}/member/list">회원목록</a>
 	</li>
 	<li>
