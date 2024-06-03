@@ -16,6 +16,10 @@ public class BoardService {
 	}
 
 
+	public Board get(int boardNo) {
+		return boardMapper.get(boardNo);
+	}
+
 	public List<Board> getAll() {
 		return boardMapper.getAll();
 	}

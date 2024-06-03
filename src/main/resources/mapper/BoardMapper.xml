@@ -13,6 +13,12 @@
     <result property="boardEmail" column="b_email"/>
   </resultMap>
 
+  <select id="get" parameterType="int" resultMap="BoardResultMap">
+    SELECT b_no, m_id, b_title, b_body, b_date
+    FROM tb_board
+    WHERE b_no = #{boardNo};
+  </select>
+
   <select id="getAll" resultMap="BoardResultMap">
     SELECT b_no, m_id, b_title, b_body, b_date
     FROM tb_board;

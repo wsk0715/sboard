@@ -27,6 +27,14 @@ public class BoardController {
 		return "board/list";
 	}
 
+	@GetMapping("/detail")
+	public String getBoardDetail(int boardNo, Model model) {
+		Board board = boardService.get(boardNo);
+		model.addAttribute("board", board);
+
+		return "board/detail";
+	}
+
 	@GetMapping("/insert")
 	public String getBoardInsert(Model model) {
 		int boardNo = boardService.getLastIndex();

@@ -7,29 +7,49 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>List</title>
+	<title>Board - Detail</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>게시글 목록</h1>
-<table>
-	<tr>
-		<td>게시글번호</td>
-		<td>게시글제목</td>
-		<td>작성자</td>
-		<td>수정</td>
-		<td>삭제</td>
-	</tr>
-	<c:forEach var="board" items="${boards}">
+<h1>게시글 상세 화면</h1>
+<div>
+	<table>
 		<tr>
-			<td>${board.boardNo}</td>
 			<td>
-				<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
+				게시글번호
 			</td>
-			<td>${board.memberId}</td>
+			<td>
+				<div id="boardNo">${board.boardNo}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				작성자
+			</td>
+			<td>
+				<div id="memberId">${board.memberId}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				제목
+			</td>
+			<td>
+				<div id="boardTitle">${board.boardTitle}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				내용
+			</td>
+			<td>
+				<div id="boardBody">${board.boardBody}</div>
+			</td>
+		</tr>
+		<tr>
 			<td>
 				<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
 			</td>
@@ -37,7 +57,7 @@
 				<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
 			</td>
 		</tr>
-	</c:forEach>
-</table>
+	</table>
+</div>
 </body>
 </html>
