@@ -19,7 +19,10 @@
 		<a href="${path}/member/list">회원목록</a>
 	</li>
 	<li>
-		<a href="${path}/member/register">회원가입</a>
+		<a href="${path}/board/list">글 목록</a>
+	</li>
+	<li>
+		<a href="${path}/board/insert">글 작성</a>
 	</li>
 </ul>
 <!-- header end -->

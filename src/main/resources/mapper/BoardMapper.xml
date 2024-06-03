@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.sboard.board.mapper.BoardMapper">
+
+  <!-- Result Mapping -->
+  <resultMap id="BoardResultMap" type="Board">
+    <result property="boardNo" column="b_no"/>
+    <result property="memberId" column="m_id"/>
+    <result property="boardTitle" column="b_title"/>
+    <result property="boardBody" column="b_body"/>
+    <result property="boardEmail" column="b_email"/>
+  </resultMap>
+
+  <select id="getAll" resultMap="BoardResultMap">
+    SELECT b_no, m_id, b_title, b_body, b_date
+    FROM tb_board;
+  </select>
+
+  <select id="getLastIndex" resultType="int">
+    SELECT COALESCE(MAX(b_no) + 1, 1)
+    FROM tb_board;
+  </select>
+
+  <insert id="insert" parameterType="Board">
+    INSERT INTO tb_board(b_no, m_id, b_title, b_body)
+    VALUES (#{boardNo}, #{memberId}, #{boardTitle}, #{boardBody});
+  </insert>
+
+</mapper>
