@@ -35,4 +35,10 @@
     WHERE b_no = #{boardNo};
   </update>
 
+  <delete id="delete" parameterType="int">
+    DELETE
+    FROM tb_board
+    WHERE b_no = #{boardNo};
+  </delete>
+
 </mapper>

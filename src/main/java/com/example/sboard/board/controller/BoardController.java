@@ -57,4 +57,11 @@ public class BoardController {
 		return "redirect:list";
 	}
 
+	@GetMapping("/delete")
+	public String getBoardDelete(int boardNo) {
+		boardService.delete(boardNo);
+
+		return "redirect:list";
+	}
+
 }

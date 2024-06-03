@@ -34,4 +34,9 @@ public class BoardService {
 		System.out.println("modify: " + board);
 	}
 
+	public void delete(int boardNo) {
+		boardMapper.delete(boardNo);
+		System.out.println("delete: boardNo=" + boardNo);
+	}
+
 }
