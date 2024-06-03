@@ -37,7 +37,6 @@ public class BoardController {
 
 	@PostMapping("/insert")
 	public String postBoardInsert(Board board) {
-		System.out.println(board);
 		boardService.insert(board);
 
 		return "redirect:list";

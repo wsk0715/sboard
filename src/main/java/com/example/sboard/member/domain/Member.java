@@ -9,4 +9,5 @@ public class Member {
 	private String memberPw;
 	private String memberName;
 	private String memberEmail;
+
 }

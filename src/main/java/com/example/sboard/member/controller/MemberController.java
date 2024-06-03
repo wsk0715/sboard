@@ -57,7 +57,6 @@ public class MemberController {
 
 		if (result > 0) {
 			session.setAttribute("sessionId", member.getMemberId());
-			System.out.println(session.getAttribute("sessionId"));
 
 			return "redirect:/";
 		}
