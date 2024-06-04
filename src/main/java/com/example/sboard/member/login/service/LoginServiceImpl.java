@@ -1,7 +1,7 @@
-package com.example.sboard.member.service;
+package com.example.sboard.member.login.service;
 
 import com.example.sboard.member.domain.Member;
-import com.example.sboard.member.mapper.LoginMapper;
+import com.example.sboard.member.login.mapper.LoginMapper;
 import org.springframework.stereotype.Service;
 
 @Service

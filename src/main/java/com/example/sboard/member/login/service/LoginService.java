@@ -1,4 +1,4 @@
-package com.example.sboard.member.service;
+package com.example.sboard.member.login.service;
 
 import com.example.sboard.member.domain.Member;
 

@@ -1,4 +1,4 @@
-package com.example.sboard.member.mapper;
+package com.example.sboard.member.login.mapper;
 
 import com.example.sboard.member.domain.Member;
 import org.apache.ibatis.annotations.Mapper;

@@ -9,20 +9,29 @@
 	<a href="${path}/">sboard</a>
 </h1>
 <ul>
+	<c:choose>
+		<c:when test="${sessionScope.sessionId != null}">
+			<li>
+				<a href="${path}/member/logout">로그아웃</a>
+			</li>
+			<li>
+				<a href="${path}/member/list">회원 목록</a>
+			</li>
+			<li>
+				<a href="${path}/board/insert">게시글 작성</a>
+			</li>
+		</c:when>
+		<c:otherwise>
+			<li>
+				<a href="${path}/member/login">로그인</a>
+			</li>
+			<li>
+				<a href="${path}/member/register">회원 가입</a>
+			</li>
+		</c:otherwise>
+	</c:choose>
 	<li>
-		<a href="${path}/member/login">로그인</a>
-	</li>
-	<li>
-		<a href="${path}/member/register">회원 가입</a>
-	</li>
-	<li>
-		<a href="${path}/member/list">회원 목록</a>
-	</li>
-	<li>
-		<a href="${path}/board/list">글 목록</a>
-	</li>
-	<li>
-		<a href="${path}/board/insert">글 작성</a>
+		<a href="${path}/board/list">게시글 목록</a>
 	</li>
 </ul>
 <!-- header end -->

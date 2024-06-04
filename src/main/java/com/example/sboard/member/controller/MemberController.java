@@ -1,10 +1,9 @@
 package com.example.sboard.member.controller;
 
 import com.example.sboard.member.domain.Member;
-import com.example.sboard.member.service.LoginService;
+import com.example.sboard.member.login.service.LoginService;
 import com.example.sboard.member.service.MemberService;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,23 +43,6 @@ public class MemberController {
 		memberService.register(member);
 
 		return "redirect:list";
-	}
-
-	@GetMapping("/login")
-	public String getMemberLogin() {
-		return "member/login";
-	}
-
-	@PostMapping("/login")
-	public String postMemberLogin(Member member, HttpSession session) {
-		int result = loginService.getMemberFromLogin(member);
-
-		if (result > 0) {
-			session.setAttribute("sessionId", member.getMemberId());
-
-			return "redirect:/";
-		}
-		return "redirect:login";
 	}
 
 	@GetMapping("/modify")
