@@ -18,6 +18,7 @@
 <form action="${path}/board/modify" method="post">
 	<input type="text" name="boardNo" value="${board.boardNo}" readonly hidden />
 	<input type="text" name="memberId" value="${board.memberId}" readonly hidden />
+	<input type="text" name="boardDate" value="${board.boardDate}" readonly hidden />
 	<div>
 		<table>
 			<tr>

@@ -20,6 +20,7 @@
 		<td>게시글번호</td>
 		<td>게시글제목</td>
 		<td>작성자</td>
+		<td>작성날짜</td>
 		<td>수정</td>
 		<td>삭제</td>
 	</tr>
@@ -30,6 +31,8 @@
 				<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
 			</td>
 			<td>${board.memberId}</td>
+			<td>${board.boardDate}</td>
+			</td>
 			<td>
 				<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
 			</td>

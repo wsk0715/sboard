@@ -13,6 +13,12 @@
     <result property="replyDate" column="r_date"/>
   </resultMap>
 
+  <select id="get" parameterType="int" resultMap="ReplyResultMap">
+    SELECT r_no, b_no, m_id, r_body, r_date
+    FROM tb_reply
+    WHERE r_no = #{replyNo};
+  </select>
+
   <select id="getAllByBoardNo" parameterType="int" resultMap="ReplyResultMap">
     SELECT r_no, b_no, m_id, r_body, r_date
     FROM tb_reply
@@ -28,5 +34,11 @@
     INSERT INTO tb_reply(r_no, b_no, m_id, r_body)
     VALUES (#{replyNo}, #{boardNo}, #{memberId}, #{replyBody});
   </insert>
+
+  <delete id="delete" parameterType="int">
+    DELETE
+    FROM tb_reply
+    WHERE r_no = #{replyNo};
+  </delete>
 
 </mapper>

@@ -17,6 +17,11 @@ public class ReplyServiceImpl implements ReplyService {
 
 
 	@Override
+	public Reply get(int replyNo) {
+		return replyMapper.get(replyNo);
+	}
+
+	@Override
 	public List<Reply> getAllByBoardNo(int boardNo) {
 		return replyMapper.getAllByBoardNo(boardNo);
 	}
@@ -29,6 +34,11 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void insert(Reply reply) {
 		replyMapper.insert(reply);
+	}
+
+	@Override
+	public void delete(int replyNo) {
+		replyMapper.delete(replyNo);
 	}
 
 }

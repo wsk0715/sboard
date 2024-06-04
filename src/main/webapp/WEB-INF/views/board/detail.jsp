@@ -51,6 +51,14 @@
 		</tr>
 		<tr>
 			<td>
+				날짜
+			</td>
+			<td>
+				<div id="boardDate">${board.boardDate}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
 			</td>
 			<td>
