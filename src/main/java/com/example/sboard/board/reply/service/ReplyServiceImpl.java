@@ -41,4 +41,9 @@ public class ReplyServiceImpl implements ReplyService {
 		replyMapper.delete(replyNo);
 	}
 
+	@Override
+	public void deleteAllByBoardNo(int boardNo) {
+		replyMapper.deleteAllByBoardNo(boardNo);
+	}
+
 }

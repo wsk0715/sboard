@@ -75,6 +75,7 @@ public class BoardController {
 
 	@GetMapping("/delete")
 	public String getBoardDelete(int boardNo) {
+		replyService.deleteAllByBoardNo(boardNo);
 		boardService.delete(boardNo);
 
 		return "redirect:list";

@@ -16,4 +16,6 @@ public interface ReplyMapper {
 
 	void delete(int replyNo);
 
+	void deleteAllByBoardNo(int boardNo);
+
 }

@@ -14,4 +14,6 @@ public interface ReplyService {
 
 	void delete(int replyNo);
 
+	void deleteAllByBoardNo(int boardNo);
+
 }

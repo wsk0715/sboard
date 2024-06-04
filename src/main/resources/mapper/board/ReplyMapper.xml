@@ -41,4 +41,10 @@
     WHERE r_no = #{replyNo};
   </delete>
 
+  <select id="deleteAllByBoardNo" parameterType="int">
+    DELETE
+    FROM tb_reply
+    WHERE b_no = #{boardNo};
+  </select>
+
 </mapper>
