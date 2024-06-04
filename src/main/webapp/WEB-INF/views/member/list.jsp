@@ -18,6 +18,7 @@
 <table>
 	<tr>
 		<td>회원번호</td>
+		<td>권한</td>
 		<td>아이디</td>
 		<td>비밀번호</td>
 		<td>이름</td>
@@ -28,7 +29,15 @@
 	<c:forEach var="member" items="${members}">
 		<tr>
 			<td>${member.memberNo}</td>
-			<td> ${member.memberId} </td>
+			<c:choose>
+				<c:when test="${member.memberLevel == 1}">
+					<td>일반회원</td>
+				</c:when>
+				<c:when test="${member.memberLevel == 2}">
+					<td>관리자</td>
+				</c:when>
+			</c:choose>
+			<td>${member.memberId}</td>
 			<td>${member.memberId}</td>
 			<td>${member.memberName}</td>
 			<td>${member.memberEmail}</td>
