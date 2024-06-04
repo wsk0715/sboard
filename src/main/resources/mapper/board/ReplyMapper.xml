@@ -13,6 +13,12 @@
     <result property="replyDate" column="r_date"/>
   </resultMap>
 
+  <select id="getAllByBoardNo" parameterType="int" resultMap="ReplyResultMap">
+    SELECT r_no, b_no, m_id, r_body, r_date
+    FROM tb_reply
+    WHERE b_no = #{boardNo};
+  </select>
+
   <select id="getLastIndex" resultType="int">
     SELECT COALESCE(MAX(r_no) + 1, 1)
     FROM tb_reply;

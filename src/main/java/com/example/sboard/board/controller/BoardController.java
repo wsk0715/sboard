@@ -1,6 +1,8 @@
 package com.example.sboard.board.controller;
 
 import com.example.sboard.board.domain.Board;
+import com.example.sboard.board.reply.domain.Reply;
+import com.example.sboard.board.reply.service.ReplyService;
 import com.example.sboard.board.service.BoardService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -14,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BoardController {
 	private final BoardService boardService;
 
-	public BoardController(BoardService boardService) {
+	private final ReplyService replyService;
+
+	public BoardController(BoardService boardService, ReplyService replyService) {
 		this.boardService = boardService;
+		this.replyService = replyService;
 	}
 
 
@@ -31,6 +36,10 @@ public class BoardController {
 	public String getBoardDetail(int boardNo, Model model) {
 		Board board = boardService.get(boardNo);
 		model.addAttribute("board", board);
+
+		List<Reply> replies = replyService.getAllByBoardNo(boardNo);
+		replies.forEach(System.out::println);
+		model.addAttribute("replies", replies);
 
 		return "board/detail";
 	}

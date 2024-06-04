@@ -62,6 +62,7 @@
 <div>
 	<h3>댓글</h3>
 	<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
+	<%@ include file="/WEB-INF/views/board/reply/list.jsp" %>
 </div>
 </body>
 </html>
