@@ -17,9 +17,6 @@
 			<li>
 				<a href="${path}/member/list">회원 목록</a>
 			</li>
-			<li>
-				<a href="${path}/board/insert">게시글 작성</a>
-			</li>
 		</c:when>
 		<c:otherwise>
 			<li>

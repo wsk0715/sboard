@@ -15,6 +15,9 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <h1>게시글 목록</h1>
+<a href="${path}/board/insert">게시글 작성</a>
+<br>
+<br>
 <table>
 	<tr>
 		<td>게시글번호</td>
