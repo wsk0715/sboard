@@ -16,24 +16,10 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <h1>게시글 수정</h1>
 <form action="${path}/board/modify" method="post">
+	<input type="text" name="boardNo" value="${board.boardNo}" readonly hidden />
+	<input type="text" name="memberId" value="${board.memberId}" readonly hidden />
 	<div>
 		<table>
-			<tr>
-				<td>
-					게시글번호
-				</td>
-				<td>
-					<input type="text" name="boardNo" value="${board.boardNo}" readonly />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					작성자
-				</td>
-				<td>
-					<input type="text" name="memberId" value="${board.memberId}" readonly />
-				</td>
-			</tr>
 			<tr>
 				<td>
 					제목

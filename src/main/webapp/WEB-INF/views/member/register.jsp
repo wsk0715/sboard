@@ -16,16 +16,9 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <h1>회원 가입</h1>
 <form action="${path}/member/register" method="post">
+	<input type="text" name="memberNo" value="${memberNo}" readonly hidden />
 	<div>
 		<table>
-			<tr>
-				<td>
-					회원번호
-				</td>
-				<td>
-					<input type="text" name="memberNo" value="${memberNo}" readonly />
-				</td>
-			</tr>
 			<tr>
 				<td>
 					아이디

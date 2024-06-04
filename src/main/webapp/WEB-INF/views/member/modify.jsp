@@ -16,16 +16,9 @@
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <h1>회원 정보 수정</h1>
 <form action="${path}/member/modify" method="post">
+	<input type="text" name="memberNo" value="${member.memberNo}" readonly hidden />
 	<div>
 		<table>
-			<tr>
-				<td>
-					회원번호
-				</td>
-				<td>
-					<input type="text" name="memberNo" value="${member.memberNo}" readonly />
-				</td>
-			</tr>
 			<tr>
 				<td>
 					아이디

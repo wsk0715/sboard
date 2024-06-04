@@ -6,6 +6,8 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <div>
 	<form action="${path}/board/reply/insert" method="post">
+		<input type="text" name="boardNo" value="${board.boardNo}" readonly hidden />
+		<input type="text" name="memberId" value="${sessionScope.sessionId}" readonly hidden />
 		<table>
 			<tr>
 				<td>
@@ -15,8 +17,6 @@
 				<td>
 					<button type="submit">등록</button>
 				</td>
-				<input type="text" name="boardNo" value="${board.boardNo}" readonly hidden />
-				<input type="text" name="memberId" value="${sessionScope.sessionId}" readonly hidden />
 			</tr>
 		</table>
 	</form>
