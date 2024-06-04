@@ -15,7 +15,11 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <h1>게시글 목록</h1>
-<a href="${path}/board/insert">게시글 작성</a>
+<c:choose>
+	<c:when test="${sessionScope.sessionId != null}">
+		<a href="${path}/board/insert">게시글 작성</a>
+	</c:when>
+</c:choose>
 <br>
 <br>
 <table>
