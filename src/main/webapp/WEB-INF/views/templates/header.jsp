@@ -14,9 +14,11 @@
 			<li>
 				<a href="${path}/member/logout">로그아웃</a>
 			</li>
-			<li>
-				<a href="${path}/member/list">회원 목록</a>
-			</li>
+			<c:if test="${sessionScope.sessionLevel > 1}">
+				<li>
+					<a href="${path}/member/list">회원 목록</a>
+				</li>
+			</c:if>
 		</c:when>
 		<c:otherwise>
 			<li>

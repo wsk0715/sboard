@@ -25,10 +25,11 @@ public class LoginController {
 
 	@PostMapping("/login")
 	public String postMemberLogin(Member member, HttpSession session) {
-		int result = loginService.getMemberFromLogin(member);
+		member = loginService.getMemberFromLogin(member);
 
-		if (result > 0) {
+		if (member.getMemberLevel() > 0) {
 			session.setAttribute("sessionId", member.getMemberId());
+			session.setAttribute("sessionLevel", member.getMemberLevel());
 
 			return "redirect:/";
 		}

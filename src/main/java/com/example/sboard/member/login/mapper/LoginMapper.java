@@ -5,6 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface LoginMapper {
-	int getMemberFromLogin(Member member);
+	Member getMemberFromLogin(Member member);
 
 }

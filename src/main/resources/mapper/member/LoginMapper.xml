@@ -4,8 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.sboard.member.login.mapper.LoginMapper">
 
-  <select id="getMemberFromLogin" parameterType="Member" resultType="int">
-    SELECT COUNT(1)
+  <!-- Result Mapping -->
+  <resultMap id="MemberResultMap" type="Member">
+    <result property="memberNo" column="m_no"/>
+    <result property="memberLevel" column="m_level"/>
+    <result property="memberId" column="m_id"/>
+    <result property="memberPw" column="m_pw"/>
+    <result property="memberName" column="m_name"/>
+    <result property="memberEmail" column="m_email"/>
+  </resultMap>
+
+  <select id="getMemberFromLogin" parameterType="Member" resultMap="MemberResultMap">
+    SELECT m_no, m_level, m_id, m_pw, m_name, m_email
     FROM tb_member
     WHERE m_id = #{memberId}
       AND m_pw = #{memberPw};

@@ -7,6 +7,7 @@
   <!-- Result Mapping -->
   <resultMap id="MemberResultMap" type="Member">
     <result property="memberNo" column="m_no"/>
+    <result property="memberLevel" column="m_level"/>
     <result property="memberId" column="m_id"/>
     <result property="memberPw" column="m_pw"/>
     <result property="memberName" column="m_name"/>

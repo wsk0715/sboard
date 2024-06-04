@@ -19,6 +19,17 @@
 	<input type="text" name="memberNo" value="${member.memberNo}" readonly hidden />
 	<div>
 		<table>
+			<c:if test="${sessionScope.sessionLevel> 1}">
+				<tr>
+					<td> 회원등급</td>
+					<td>
+						<select name="memberLevel">
+							<option value="1">일반회원</option>
+							<option value="2">관리자</option>
+						</select>
+					</td>
+				</tr>
+			</c:if>
 			<tr>
 				<td>
 					아이디
