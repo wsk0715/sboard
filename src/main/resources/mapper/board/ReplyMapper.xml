@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.sboard.board.reply.mapper.ReplyMapper">
+
+  <!-- Result Mapping -->
+  <resultMap id="ReplyResultMap" type="Reply">
+    <result property="replyNo" column="r_no"/>
+    <result property="boardNo" column="b_no"/>
+    <result property="memberId" column="m_id"/>
+    <result property="replyBody" column="r_body"/>
+    <result property="replyDate" column="r_date"/>
+  </resultMap>
+
+  <select id="getLastIndex" resultType="int">
+    SELECT COALESCE(MAX(b_no) + 1, 1)
+    FROM tb_reply;
+  </select>
+
+  <insert id="insert" parameterType="Reply">
+    INSERT INTO tb_reply(r_no, b_no, m_id, r_body)
+    VALUES (#{replyNo}, #{boardNo}, #{memberId}, #{replyBody});
+  </insert>
+
+</mapper>

@@ -59,5 +59,9 @@
 		</tr>
 	</table>
 </div>
+<div>
+	<h3>댓글</h3>
+	<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
+</div>
 </body>
 </html>
