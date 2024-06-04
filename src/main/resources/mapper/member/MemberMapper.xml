@@ -15,13 +15,13 @@
   </resultMap>
 
   <select id="get" parameterType="int" resultMap="MemberResultMap">
-    SELECT m_no, m_id, m_pw, m_name, m_email
+    SELECT m_no, m_level, m_id, m_pw, m_name, m_email
     FROM tb_member
     WHERE m_no = #{memberNo};
   </select>
 
   <select id="getAll" resultMap="MemberResultMap">
-    SELECT m_no, m_id, m_pw, m_name, m_email
+    SELECT m_no, m_level, m_id, m_pw, m_name, m_email
     FROM tb_member;
   </select>
 
@@ -37,10 +37,11 @@
 
   <update id="modify" parameterType="Member">
     UPDATE tb_member
-    SET m_id=#{memberId},
-        m_pw=#{memberPw},
-        m_name=#{memberName},
-        m_email=#{memberEmail}
+    SET m_level = #{memberLevel},
+        m_id    = #{memberId},
+        m_pw    = #{memberPw},
+        m_name  = #{memberName},
+        m_email = #{memberEmail}
     WHERE m_no = #{memberNo};
   </update>
 
