@@ -14,7 +14,7 @@
   </resultMap>
 
   <select id="getLastIndex" resultType="int">
-    SELECT COALESCE(MAX(b_no) + 1, 1)
+    SELECT COALESCE(MAX(r_no) + 1, 1)
     FROM tb_reply;
   </select>
 
