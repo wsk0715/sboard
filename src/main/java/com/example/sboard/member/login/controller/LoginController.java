@@ -39,6 +39,7 @@ public class LoginController {
 	@GetMapping("/logout")
 	public String getMemberLogout(HttpSession session) {
 		session.removeAttribute("sessionId");
+		session.removeAttribute("sessionLevel");
 
 		return "redirect:/";
 	}
