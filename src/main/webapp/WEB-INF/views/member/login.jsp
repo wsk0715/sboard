@@ -14,27 +14,31 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>로그인</h1>
-<form action="${path}/member/login" method="post">
-	<div>
-		<table>
-			<tr>
-				<td>ID</td>
-				<td>
-					<input type="text" name="memberId">
-				</td>
-			</tr>
-			<tr>
-				<td>PW</td>
-				<td>
-					<input type="password" name="memberPw">
-				</td>
-			</tr>
-		</table>
-		<br>
-		<button type="submit">로그인</button>
-		<button type="button" onclick="location.href='${path}/'">취소</button>
+<section>
+	<h2>로그인</h2>
+	<div class="container">
+		<form action="${path}/member/login" method="post">
+			<div>
+				<table>
+					<tr>
+						<td>ID</td>
+						<td>
+							<input type="text" name="memberId">
+						</td>
+					</tr>
+					<tr>
+						<td>PW</td>
+						<td>
+							<input type="password" name="memberPw">
+						</td>
+					</tr>
+				</table>
+				<br>
+				<button type="submit">로그인</button>
+				<button type="button" onclick="location.href='${path}/'">취소</button>
+			</div>
+		</form>
 	</div>
-</form>
+</section>
 </body>
 </html>

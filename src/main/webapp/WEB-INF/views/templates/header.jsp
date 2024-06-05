@@ -5,32 +5,34 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- header start-->
-<h1>
-	<a href="${path}/">sboard</a>
-</h1>
-<ul>
-	<c:choose>
-		<c:when test="${sessionScope.sessionId != null}">
-			<li>
-				<a href="${path}/member/logout">로그아웃</a>
-			</li>
-			<c:if test="${sessionScope.sessionLevel > 1}">
+<header>
+	<h1>
+		<a href="${path}/">sboard</a>
+	</h1>
+	<ul>
+		<c:choose>
+			<c:when test="${sessionScope.sessionId != null}">
 				<li>
-					<a href="${path}/member/list">회원 목록</a>
+					<a href="${path}/member/logout">로그아웃</a>
 				</li>
-			</c:if>
-		</c:when>
-		<c:otherwise>
-			<li>
-				<a href="${path}/member/login">로그인</a>
-			</li>
-			<li>
-				<a href="${path}/member/register">회원 가입</a>
-			</li>
-		</c:otherwise>
-	</c:choose>
-	<li>
-		<a href="${path}/board/list">게시글 목록</a>
-	</li>
-</ul>
+				<c:if test="${sessionScope.sessionLevel > 1}">
+					<li>
+						<a href="${path}/member/list">회원 목록</a>
+					</li>
+				</c:if>
+			</c:when>
+			<c:otherwise>
+				<li>
+					<a href="${path}/member/login">로그인</a>
+				</li>
+				<li>
+					<a href="${path}/member/register">회원 가입</a>
+				</li>
+			</c:otherwise>
+		</c:choose>
+		<li>
+			<a href="${path}/board/list">게시글 목록</a>
+		</li>
+	</ul>
+</header>
 <!-- header end -->

@@ -14,63 +14,67 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>게시글 상세</h1>
-<div>
-	<table>
-		<tr>
-			<td>
-				게시글번호
-			</td>
-			<td>
-				<div id="boardNo">${board.boardNo}</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				작성자
-			</td>
-			<td>
-				<div id="memberId">${board.memberId}</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				제목
-			</td>
-			<td>
-				<div id="boardTitle">${board.boardTitle}</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				내용
-			</td>
-			<td>
-				<div id="boardBody">${board.boardBody}</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				날짜
-			</td>
-			<td>
-				<div id="boardDate">${board.boardDate}</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
-			</td>
-			<td>
-				<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
-			</td>
-		</tr>
-	</table>
-</div>
-<div>
-	<h3>댓글</h3>
-	<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
-	<%@ include file="/WEB-INF/views/board/reply/list.jsp" %>
-</div>
+<section>
+	<h2>게시글 상세</h2>
+	<div class="container">
+		<table>
+			<tr>
+				<td>
+					게시글번호
+				</td>
+				<td>
+					<div id="boardNo">${board.boardNo}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					작성자
+				</td>
+				<td>
+					<div id="memberId">${board.memberId}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					제목
+				</td>
+				<td>
+					<div id="boardTitle">${board.boardTitle}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					내용
+				</td>
+				<td>
+					<div id="boardBody">${board.boardBody}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					날짜
+				</td>
+				<td>
+					<div id="boardDate">${board.boardDate}</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
+				</td>
+				<td>
+					<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<br>
+	<br>
+	<div>
+		<h3>댓글</h3>
+		<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
+		<%@ include file="/WEB-INF/views/board/reply/list.jsp" %>
+	</div>
+</section>
 </body>
 </html>

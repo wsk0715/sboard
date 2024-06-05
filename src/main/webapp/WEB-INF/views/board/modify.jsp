@@ -14,34 +14,36 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>게시글 수정</h1>
-<form action="${path}/board/modify" method="post">
-	<input type="text" name="boardNo" value="${board.boardNo}" readonly hidden />
-	<input type="text" name="memberId" value="${board.memberId}" readonly hidden />
-	<input type="text" name="boardDate" value="${board.boardDate}" readonly hidden />
-	<div>
-		<table>
-			<tr>
-				<td>
-					제목
-				</td>
-				<td>
-					<input type="text" name="boardTitle" value="${board.boardTitle}" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					내용
-				</td>
-				<td>
-					<textarea name="boardBody">${board.boardBody}</textarea>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<button type="submit">등록</button>
-		<button type="button" onclick="location.href='${path}/board/list'">취소</button>
+<section>
+	<h2>게시글 수정</h2>
+	<div class="container">
+		<form action="${path}/board/modify" method="post">
+			<input type="text" name="boardNo" value="${board.boardNo}" readonly hidden />
+			<input type="text" name="memberId" value="${board.memberId}" readonly hidden />
+			<input type="text" name="boardDate" value="${board.boardDate}" readonly hidden />
+			<table>
+				<tr>
+					<td>
+						제목
+					</td>
+					<td>
+						<input type="text" name="boardTitle" value="${board.boardTitle}" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						내용
+					</td>
+					<td>
+						<textarea name="boardBody">${board.boardBody}</textarea>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<button type="submit">등록</button>
+			<button type="button" onclick="location.href='${path}/board/list'">취소</button>
+		</form>
 	</div>
-</form>
+</section>
 </body>
 </html>

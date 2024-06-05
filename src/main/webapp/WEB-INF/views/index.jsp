@@ -15,13 +15,14 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<c:choose>
-	<c:when test="${sessionScope.sessionId != null}">
-		<p><c:out value="${sessionId}" />님 환영합니다.</p>
-	</c:when>
-	<c:otherwise>
-		<p>로그인해주세요.</p>
-	</c:otherwise>
-</c:choose>
+<section>
+	<c:choose>
+		<c:when test="${sessionScope.sessionId != null}">
+			<p><c:out value="${sessionId}" />님 환영합니다.</p>
+		</c:when>
+		<c:otherwise>
+			<p>로그인해주세요.</p>
+		</c:otherwise>
+	</c:choose></section>
 </body>
 </html>

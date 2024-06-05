@@ -14,40 +14,44 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
-<h1>게시글 목록</h1>
-<c:choose>
-	<c:when test="${sessionScope.sessionId != null}">
-		<a href="${path}/board/insert">게시글 작성</a>
-	</c:when>
-</c:choose>
-<br>
-<br>
-<table>
-	<tr>
-		<td>게시글번호</td>
-		<td>게시글제목</td>
-		<td>작성자</td>
-		<td>작성날짜</td>
-		<td>수정</td>
-		<td>삭제</td>
-	</tr>
-	<c:forEach var="board" items="${boards}">
-		<tr>
-			<td>${board.boardNo}</td>
-			<td>
-				<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
-			</td>
-			<td>${board.memberId}</td>
-			<td>${board.boardDate}</td>
-			</td>
-			<td>
-				<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
-			</td>
-			<td>
-				<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
-			</td>
-		</tr>
-	</c:forEach>
-</table>
+<section>
+	<h2>게시글 목록</h2>
+	<c:choose>
+		<c:when test="${sessionScope.sessionId != null}">
+			<a href="${path}/board/insert">게시글 작성</a>
+		</c:when>
+	</c:choose>
+	<br>
+	<br>
+	<div class="container">
+		<table>
+			<tr>
+				<td>게시글번호</td>
+				<td>게시글제목</td>
+				<td>작성자</td>
+				<td>작성날짜</td>
+				<td>수정</td>
+				<td>삭제</td>
+			</tr>
+			<c:forEach var="board" items="${boards}">
+				<tr>
+					<td>${board.boardNo}</td>
+					<td>
+						<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
+					</td>
+					<td>${board.memberId}</td>
+					<td>${board.boardDate}</td>
+					</td>
+					<td>
+						<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
+					</td>
+					<td>
+						<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+</section>
 </body>
 </html>
