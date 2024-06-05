@@ -59,7 +59,7 @@ public class MemberController {
 	public String postMemberRegister(Member member) {
 		memberService.register(member);
 
-		return "redirect:list";
+		return "redirect:/";
 	}
 
 	@GetMapping("/modify")
