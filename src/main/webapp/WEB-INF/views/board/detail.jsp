@@ -11,70 +11,68 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
+	<style>
+		#head {
+			position: relative;
+		}
+
+		#button-container {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.custom-colname {
+			font-weight: bold;
+			width: 4rem;
+		}
+
+		.card-body > p {
+			min-height: 8rem;
+		}
+	</style>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<h2>게시글 상세</h2>
-	<div class="container">
-		<table>
-			<tr>
-				<td>
-					게시글번호
-				</td>
-				<td>
-					<div id="boardNo">${board.boardNo}</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					작성자
-				</td>
-				<td>
-					<div id="memberId">${board.memberId}</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					제목
-				</td>
-				<td>
-					<div id="boardTitle">${board.boardTitle}</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					내용
-				</td>
-				<td>
-					<div id="boardBody">${board.boardBody}</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					날짜
-				</td>
-				<td>
-					<div id="boardDate">${board.boardDate}</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
-				</td>
-				<td>
-					<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
-				</td>
-			</tr>
-		</table>
+	<div class="container px-0">
+		<div id="head">
+			<h2 class="text-center mt-5">게시글 상세</h2>
+			<div id="button-container">
+				<a href="${path}/board/modify?boardNo=${board.boardNo}" class="btn btn-warning">수정</a>
+				<a href="${path}/board/delete?boardNo=${board.boardNo}" class="btn btn-danger">삭제</a>
+			</div>
+		</div>
+		<br>
+		<div id="main">
+			<div class="card">
+				<div class="card-body px-3">
+					<div class="row mb-2">
+						<div class="col-6 d-flex">
+							<div class="custom-colname">작성자</div>
+							<div class="flex-grow-1">${board.memberId}</div>
+						</div>
+						<div class="col-6 d-flex">
+							<div class="custom-colname">작성일</div>
+							<div class="flex-grow-1">${board.boardDate}</div>
+						</div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-12 d-flex">
+							<div class="custom-colname">제목</div>
+							<div class="flex-grow-1">${board.boardTitle}</div>
+						</div>
+					</div>
+					<hr>
+					<p>${board.boardBody}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 	<br>
 	<br>
-	<div>
-		<h3>댓글</h3>
-		<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
-		<%@ include file="/WEB-INF/views/board/reply/list.jsp" %>
-	</div>
+	<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
+	<%@ include file="/WEB-INF/views/board/reply/list.jsp" %>
 </section>
 </body>
 </html>

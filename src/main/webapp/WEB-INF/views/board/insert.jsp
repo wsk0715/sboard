@@ -15,33 +15,35 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<h2>게시글 작성</h2>
 	<div class="container">
-		<form action="${path}/board/insert" method="post">
-			<input type="text" name="boardNo" value="${boardNo}" readonly hidden />
-			<input type="text" name="memberId" value="${sessionScope.sessionId}" readonly hidden />
-			<table>
-				<tr>
-					<td>
-						제목
-					</td>
-					<td>
-						<input type="text" name="boardTitle" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						내용
-					</td>
-					<td>
-						<textarea name="boardBody"></textarea>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<button type="submit">등록</button>
-			<button type="button" onclick="location.href='${path}/board/list'">취소</button>
-		</form>
+		<div class="row justify-content-center">
+			<div class="col-md-12">
+				<h2 class="text-center mt-5">게시글 작성</h2>
+				<form action="${path}/board/insert" method="post">
+					<input type="text" name="boardNo" value="${boardNo}" readonly hidden />
+					<input type="text" name="memberId" value="${sessionScope.sessionId}" readonly hidden />
+					<div class="form-group">
+						<label for="boardTitle">제목</label>
+						<input type="text" class="form-control" id="boardTitle" name="boardTitle" placeholder="제목을 입력하세요">
+					</div>
+					<div class="form-group">
+						<label for="boardBody">내용</label>
+						<textarea class="form-control" id="boardBody" name="boardBody" rows="10" placeholder="내용을 입력하세요"></textarea>
+					</div>
+					<br>
+					<div class="row text-center">
+						<div class="col-3"></div>
+						<div class="col-3 px-0">
+							<button type="submit" class="px-3 btn btn-primary btn-block">등록</button>
+						</div>
+						<div class="col-3 px-0">
+							<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/board/list'">취소</button>
+						</div>
+						<div class="col-3"></div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </section>
 </body>
