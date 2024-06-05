@@ -18,14 +18,14 @@
 <section>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-6">
+			<div class="col-md-6 text-center">
 				<c:choose>
 					<c:when test="${sessionScope.sessionId != null}">
-						<h2 class="text-center mt-5">메인 화면</h2>
+						<h2 class="mt-5">메인 화면</h2>
 						<p class="mt-5"><c:out value="${sessionId}" />님 환영합니다.</p>
 					</c:when>
 					<c:otherwise>
-						<h2 class="text-center mt-5">메인 화면</h2>
+						<h2 class="mt-5">메인 화면</h2>
 						<p class="mt-5">로그아웃 상태입니다.</p>
 					</c:otherwise>
 				</c:choose>

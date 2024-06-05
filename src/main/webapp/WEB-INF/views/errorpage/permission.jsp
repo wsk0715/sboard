@@ -15,12 +15,19 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<h2>Error - Permission</h2>
-	<p>해당 요청에 대한 권한이 없습니다. <span><b id="countdown">5</b></span>초 후 메인 페이지로 이동합니다.</p>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6 text-center">
+				<h2 class="mt-5">오류</h2>
+				<p class="mt-5">해당 요청에 대한 권한이 없습니다.</p>
+				<p><span><b id="countdown">3</b></span>초 후 메인 페이지로 이동합니다.</p>
+			</div>
+		</div>
+	</div>
 </section>
 <script>
 	const countdownElement = document.getElementById('countdown');
-	let countdown = 5;
+	let countdown = 3;
 
 	const countdownInterval = setInterval(function () {
 		countdownElement.textContent = --countdown;
