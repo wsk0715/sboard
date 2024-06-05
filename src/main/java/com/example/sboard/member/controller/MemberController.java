@@ -1,9 +1,13 @@
 package com.example.sboard.member.controller;
 
+import static com.example.sboard.utils.PermissionValidator.validateIsLogin;
+import static com.example.sboard.utils.PermissionValidator.validateIsSelf;
+
 import com.example.sboard.member.domain.Member;
 import com.example.sboard.member.login.service.LoginService;
 import com.example.sboard.member.service.MemberService;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +27,11 @@ public class MemberController {
 	}
 
 	@GetMapping("/list")
-	public String getMemberList(Model model) {
+	public String getMemberList(HttpSession session, Model model) {
+		if (!validateIsLogin(session)) {
+			return "redirect:/error/permission";
+		}
+
 		List<Member> members = memberService.getAll();
 		model.addAttribute("members", members);
 
@@ -46,21 +54,35 @@ public class MemberController {
 	}
 
 	@GetMapping("/modify")
-	public String getMemberModify(int memberNo, Model model) {
-		model.addAttribute("member", memberService.get(memberNo));
+	public String getMemberModify(HttpSession session, int memberNo, Model model) {
+		Member member = memberService.get(memberNo);
+		if (!validateIsSelf(session, member.getMemberId())) {
+			return "redirect:/error/permission";
+		}
+
+		model.addAttribute("member", member);
 
 		return "member/modify";
 	}
 
 	@PostMapping("/modify")
-	public String postMemberModify(Member member) {
+	public String postMemberModify(HttpSession session, Member member) {
+		if (!validateIsSelf(session, member.getMemberId())) {
+			return "redirect:/error/permission";
+		}
+
 		memberService.modify(member);
 
 		return "redirect:list";
 	}
 
 	@GetMapping("/delete")
-	public String getMemberDelete(int memberNo) {
+	public String getMemberDelete(HttpSession session, int memberNo) {
+		Member member = memberService.get(memberNo);
+		if (!validateIsSelf(session, member.getMemberId())) {
+			return "redirect:/error/permission";
+		}
+
 		memberService.delete(memberNo);
 
 		return "redirect:list";
