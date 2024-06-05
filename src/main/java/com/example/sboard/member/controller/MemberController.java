@@ -4,7 +4,6 @@ import static com.example.sboard.utils.PermissionValidator.validateIsLogin;
 import static com.example.sboard.utils.PermissionValidator.validateIsSelf;
 
 import com.example.sboard.member.domain.Member;
-import com.example.sboard.member.login.service.LoginService;
 import com.example.sboard.member.service.MemberService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -18,14 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member")
 public class MemberController {
 	private final MemberService memberService;
-	private final LoginService loginService;
 
 
-	public MemberController(MemberService memberService, LoginService loginService) {
+	public MemberController(MemberService memberService) {
 		this.memberService = memberService;
-		this.loginService = loginService;
 	}
 
+	
 	@GetMapping("/list")
 	public String getMemberList(HttpSession session, Model model) {
 		if (!validateIsLogin(session)) {
