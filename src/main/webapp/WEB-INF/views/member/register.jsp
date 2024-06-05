@@ -19,7 +19,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<h2 class="text-center mt-5">회원 가입</h2>
-				<form action="${path}/member/register" method="post">
+				<form id="memberForm" action="${path}/member/register" method="post">
 					<input type="text" name="memberNo" value="${memberNo}" readonly hidden />
 					<div class="form-group">
 						<label for="memberId">아이디</label>
@@ -35,7 +35,7 @@
 					</div>
 					<div class="form-group">
 						<label for="memberEmail">이메일</label>
-						<input type="email" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일을 입력하세요">
+						<input type="text" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일을 입력하세요">
 					</div>
 					<br>
 					<div class="row text-center">
@@ -53,5 +53,6 @@
 		</div>
 	</div>
 </section>
+<script src="${path}/resources/validation/validateMember.js"></script>
 </body>
 </html>

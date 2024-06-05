@@ -19,7 +19,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<h2 class="text-center mt-5">로그인</h2>
-				<form action="${path}/member/login" method="post">
+				<form id="memberForm" action="${path}/member/login" method="post">
 					<div class="form-group">
 						<label for="memberId">아이디</label>
 						<input type="text" class="form-control" id="memberId" name="memberId" placeholder="아이디를 입력하세요">
@@ -44,5 +44,6 @@
 		</div>
 	</div>
 </section>
+<script src="${path}/resources/validation/validateMember.js"></script>
 </body>
 </html>

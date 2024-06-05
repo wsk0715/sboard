@@ -48,7 +48,7 @@
 				</div>
 				<div class="form-group">
 					<label for="memberEmail">이메일</label>
-					<input type="email" class="form-control" id="memberEmail" name="memberEmail" value="${member.memberEmail}" readonly />
+					<input type="text" class="form-control" id="memberEmail" name="memberEmail" value="${member.memberEmail}" readonly />
 				</div>
 				<br>
 				<div class="row text-center">

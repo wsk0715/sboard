@@ -19,7 +19,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<h2 class="text-center mt-5">회원 정보 수정</h2>
-				<form action="${path}/member/modify" method="post">
+				<form id="memberForm" action="${path}/member/modify" method="post">
 					<input type="text" name="memberNo" value="${member.memberNo}" readonly hidden />
 					<c:if test="${sessionScope.sessionLevel > 1}">
 						<div class="form-group">
@@ -44,7 +44,7 @@
 					</div>
 					<div class="form-group">
 						<label for="memberEmail">이메일</label>
-						<input type="email" class="form-control" id="memberEmail" name="memberEmail" value="${member.memberEmail}" />
+						<input type="text" class="form-control" id="memberEmail" name="memberEmail" value="${member.memberEmail}" />
 					</div>
 					<br>
 					<div class="row text-center">
@@ -62,5 +62,6 @@
 		</div>
 	</div>
 </section>
+<script src="${path}/resources/validation/validateMember.js"></script>
 </body>
 </html>
