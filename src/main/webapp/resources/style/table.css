@@ -1,0 +1,13 @@
+table, #reply-insert {
+	width: 80%;
+	border-collapse: collapse;
+}
+
+form table {
+	width: 50%;
+}
+
+td {
+	border: 1px solid black;
+	padding: 5px;
+}
