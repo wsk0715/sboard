@@ -1,5 +1,5 @@
 body {
-	padding: 0 4%;
+	padding: 4% 4%;
 }
 
 ul {
@@ -13,6 +13,11 @@ li {
 	margin-right: 10px;
 }
 
-.container {
-	text-align: center;
+a {
+	text-decoration: none;
+}
+
+.custom-container {
+	max-width: 960px !important;
+	margin: 0 auto !important;
 }

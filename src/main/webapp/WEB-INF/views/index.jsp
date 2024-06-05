@@ -16,13 +16,22 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<c:choose>
-		<c:when test="${sessionScope.sessionId != null}">
-			<p><c:out value="${sessionId}" />님 환영합니다.</p>
-		</c:when>
-		<c:otherwise>
-			<p>로그인해주세요.</p>
-		</c:otherwise>
-	</c:choose></section>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<c:choose>
+					<c:when test="${sessionScope.sessionId != null}">
+						<h2 class="text-center mt-5">메인 화면</h2>
+						<p class="mt-5"><c:out value="${sessionId}" />님 환영합니다.</p>
+					</c:when>
+					<c:otherwise>
+						<h2 class="text-center mt-5">메인 화면</h2>
+						<p class="mt-5">로그아웃 상태입니다.</p>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+	</div>
+</section>
 </body>
 </html>

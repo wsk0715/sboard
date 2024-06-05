@@ -1,13 +1,17 @@
-table, #reply-insert {
-	width: 80%;
+table {
 	border-collapse: collapse;
 }
 
-form table {
-	width: 50%;
+.table thead th {
+	background-color: #f8f9fa;
+	border: 2px solid #dee2e6;
 }
 
-td {
-	border: 1px solid black;
+.table td, .table th {
+	border-top: none;
+}
+
+.table tbody tr td {
+	border: 1px solid #dee2e6;
 	padding: 5px;
 }

@@ -15,48 +15,42 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<h2>회원 가입</h2>
 	<div class="container">
-		<form action="${path}/member/register" method="post">
-			<input type="text" name="memberNo" value="${memberNo}" readonly hidden />
-			<table>
-				<tr>
-					<td>
-						아이디
-					</td>
-					<td>
-						<input type="text" name="memberId" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						비밀번호
-					</td>
-					<td>
-						<input type="password" name="memberPw" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						이름
-					</td>
-					<td>
-						<input type="text" name="memberName" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						이메일
-					</td>
-					<td>
-						<input type="text" name="memberEmail" />
-					</td>
-				</tr>
-			</table>
-			<br>
-			<button type="submit">등록</button>
-			<button type="button" onclick="location.href='${path}/member/list'">취소</button>
-		</form>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h2 class="text-center mt-5">회원 가입</h2>
+				<form action="${path}/member/register" method="post">
+					<input type="text" name="memberNo" value="${memberNo}" readonly hidden />
+					<div class="form-group">
+						<label for="memberId">아이디</label>
+						<input type="text" class="form-control" id="memberId" name="memberId" placeholder="아이디를 입력하세요">
+					</div>
+					<div class="form-group">
+						<label for="memberPw">비밀번호</label>
+						<input type="password" class="form-control" id="memberPw" name="memberPw" placeholder="비밀번호를 입력하세요">
+					</div>
+					<div class="form-group">
+						<label for="memberName">이름</label>
+						<input type="text" class="form-control" id="memberName" name="memberName" placeholder="이름을 입력하세요">
+					</div>
+					<div class="form-group">
+						<label for="memberEmail">이메일</label>
+						<input type="email" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일을 입력하세요">
+					</div>
+					<br>
+					<div class="row text-center">
+						<div class="col-3"></div>
+						<div class="col-3 px-0">
+							<button type="submit" class="px-3 btn btn-primary btn-block">등록</button>
+						</div>
+						<div class="col-3 px-0">
+							<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/member/list'">취소</button>
+						</div>
+						<div class="col-3"></div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </section>
 </body>
