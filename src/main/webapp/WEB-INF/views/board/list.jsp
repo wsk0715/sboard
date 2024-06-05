@@ -11,46 +11,65 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
+	<style>
+		#main {
+			position: relative;
+		}
+
+		#button-write {
+			position: absolute;
+			right: 0;
+			top: 3rem;
+		}
+	</style>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<h2>게시글 목록</h2>
-	<c:choose>
-		<c:when test="${sessionScope.sessionId != null}">
-			<a href="${path}/board/insert">게시글 작성</a>
-		</c:when>
-	</c:choose>
-	<br>
-	<br>
-	<div class="container">
-		<table>
-			<tr>
-				<td>번호</td>
-				<td>제목</td>
-				<td>작성자</td>
-				<td>작성날짜</td>
-				<td>수정</td>
-				<td>삭제</td>
-			</tr>
-			<c:forEach var="board" items="${boards}">
-				<tr>
-					<td>${board.boardNo}</td>
-					<td>
-						<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
-					</td>
-					<td>${board.memberId}</td>
-					<td>${board.boardDate}</td>
-					</td>
-					<td>
-						<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
-					</td>
-					<td>
-						<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
+	<div class="container custom-container">
+		<div class="row justify-content-center">
+			<div id="main" class="col-md-12">
+				<h2 class="text-center mt-5">게시글 목록</h2>
+				<br>
+				<c:choose>
+					<c:when test="${sessionScope.sessionId != null}">
+						<a id="button-write" href="${path}/board/insert" class="btn btn-primary">게시글 작성</a>
+					</c:when>
+				</c:choose>
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover">
+						<thead class="thead-dark">
+						<tr>
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성날짜</th>
+							<th>수정</th>
+							<th>삭제</th>
+						</tr>
+						</thead>
+						<tbody>
+						<c:forEach var="board" items="${boards}">
+							<tr>
+								<td>${board.boardNo}</td>
+								<td>
+									<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
+								</td>
+								<td>${board.memberId}</td>
+								<td>${board.boardDate}</td>
+								<td>
+									<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
+								</td>
+								<td>
+									<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
+								</td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 </body>
