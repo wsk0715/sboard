@@ -15,59 +15,51 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<h2>회원 정보 수정</h2>
 	<div class="container">
-		<form action="${path}/member/modify" method="post">
-			<input type="text" name="memberNo" value="${member.memberNo}" readonly hidden />
-			<table>
-				<c:if test="${sessionScope.sessionLevel> 1}">
-					<tr>
-						<td> 회원등급</td>
-						<td>
-							<select name="memberLevel">
-								<option value="1">일반회원</option>
-								<option value="2">관리자</option>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h2 class="text-center mt-5">회원 정보 수정</h2>
+				<form action="${path}/member/modify" method="post">
+					<input type="text" name="memberNo" value="${member.memberNo}" readonly hidden />
+					<c:if test="${sessionScope.sessionLevel > 1}">
+						<div class="form-group">
+							<label for="memberLevel">회원등급</label>
+							<select class="form-control" name="memberLevel" id="memberLevel">
+								<option value="1" ${member.memberLevel == 1 ? 'selected' : ''}>일반회원</option>
+								<option value="2" ${member.memberLevel == 2 ? 'selected' : ''}>관리자</option>
 							</select>
-						</td>
-					</tr>
-				</c:if>
-				<tr>
-					<td>
-						아이디
-					</td>
-					<td>
-						<input type="text" name="memberId" value="${member.memberId}" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						비밀번호
-					</td>
-					<td>
-						<input type="password" name="memberPw" value="${member.memberPw}" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						이름
-					</td>
-					<td>
-						<input type="text" name="memberName" value="${member.memberName}" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						이메일
-					</td>
-					<td>
-						<input type="text" name="memberEmail" value="${member.memberEmail}" />
-					</td>
-				</tr>
-			</table>
-			<br>
-			<button type="submit">수정</button>
-			<button type="button" onclick="location.href='${path}/member/list'">취소</button>
-		</form>
+						</div>
+					</c:if>
+					<div class="form-group">
+						<label for="memberId">아이디</label>
+						<input type="text" class="form-control" id="memberId" name="memberId" value="${member.memberId}" />
+					</div>
+					<div class="form-group">
+						<label for="memberPw">비밀번호</label>
+						<input type="password" class="form-control" id="memberPw" name="memberPw" value="${member.memberPw}" />
+					</div>
+					<div class="form-group">
+						<label for="memberName">이름</label>
+						<input type="text" class="form-control" id="memberName" name="memberName" value="${member.memberName}" />
+					</div>
+					<div class="form-group">
+						<label for="memberEmail">이메일</label>
+						<input type="email" class="form-control" id="memberEmail" name="memberEmail" value="${member.memberEmail}" />
+					</div>
+					<br>
+					<div class="row text-center">
+						<div class="col-3"></div>
+						<div class="col-3 px-0">
+							<button type="submit" class="px-3 btn btn-primary btn-block">수정</button>
+						</div>
+						<div class="col-3 px-0">
+							<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/member/list'">취소</button>
+						</div>
+						<div class="col-3"></div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </section>
 </body>
