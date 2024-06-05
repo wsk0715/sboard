@@ -1,43 +1,20 @@
 package com.example.sboard.board.service;
 
 import com.example.sboard.board.domain.Board;
-import com.example.sboard.board.mapper.BoardMapper;
 import java.util.List;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Service
-@Transactional
-public class BoardService {
-	private final BoardMapper boardMapper;
+public interface BoardService {
 
-	public BoardService(BoardMapper boardMapper) {
-		this.boardMapper = boardMapper;
-	}
+	Board get(int boardNo);
 
+	List<Board> getAll();
 
-	public Board get(int boardNo) {
-		return boardMapper.get(boardNo);
-	}
+	int getLastIndex();
 
-	public List<Board> getAll() {
-		return boardMapper.getAll();
-	}
+	void insert(Board board);
 
-	public int getLastIndex() {
-		return boardMapper.getLastIndex();
-	}
+	void modify(Board board);
 
-	public void insert(Board board) {
-		boardMapper.insert(board);
-	}
-
-	public void modify(Board board) {
-		boardMapper.modify(board);
-	}
-
-	public void delete(int boardNo) {
-		boardMapper.delete(boardNo);
-	}
+	void delete(int boardNo);
 
 }
