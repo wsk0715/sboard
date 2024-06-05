@@ -30,17 +30,14 @@ public class BoardService {
 
 	public void insert(Board board) {
 		boardMapper.insert(board);
-		System.out.println("insert: " + board);
 	}
 
 	public void modify(Board board) {
 		boardMapper.modify(board);
-		System.out.println("modify: " + board);
 	}
 
 	public void delete(int boardNo) {
 		boardMapper.delete(boardNo);
-		System.out.println("delete: boardNo=" + boardNo);
 	}
 
 }

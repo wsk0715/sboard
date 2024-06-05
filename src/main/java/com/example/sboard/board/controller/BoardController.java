@@ -41,7 +41,6 @@ public class BoardController {
 		model.addAttribute("board", board);
 
 		List<Reply> replies = replyService.getAllByBoardNo(boardNo);
-		replies.forEach(System.out::println);
 		model.addAttribute("replies", replies);
 
 		return "board/detail";

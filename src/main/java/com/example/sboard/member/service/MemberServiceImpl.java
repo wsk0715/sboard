@@ -34,19 +34,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void register(Member member) {
 		memberMapper.register(member);
-		System.out.println("register: " + member);
 	}
 
 	@Override
 	public void modify(Member member) {
 		memberMapper.modify(member);
-		System.out.println("modify: " + member);
 	}
 
 	@Override
 	public void delete(int memberNo) {
 		memberMapper.delete(memberNo);
-		System.out.println("delete: memberNo=" + memberNo);
 	}
 
 }
