@@ -7,7 +7,7 @@
 <div class="list-group reply-list">
 	<c:forEach var="reply" items="${replies}">
 		<br>
-		<div class="list-group-item" style="position: relative;">
+		<div class="list-group-item rounded" style="position: relative;">
 			<p>${reply.replyBody}</p>
 			<small class="text-muted"><b>${reply.memberId}</b> | ${reply.replyDate}</small>
 			<div class="text-right" style="position: absolute; top: 1.5rem; right: 0.5rem">
