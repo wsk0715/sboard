@@ -22,7 +22,7 @@
 				<c:choose>
 					<c:when test="${sessionScope.sessionId != null}">
 						<h2 class="mt-5">메인 화면</h2>
-						<p class="mt-5"><c:out value="${sessionId}" />님 환영합니다.</p>
+						<p class="mt-5"><b><c:out value="${sessionId}" /></b>님 환영합니다.</p>
 					</c:when>
 					<c:otherwise>
 						<h2 class="mt-5">메인 화면</h2>

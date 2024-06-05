@@ -41,12 +41,11 @@ public class MemberController {
 		if (!validateIsSelf(session, member.getMemberId())) {
 			return "redirect:/error/permission";
 		}
-		
+
 		model.addAttribute("member", member);
 
 		return "member/detail";
 	}
-
 
 	@GetMapping("/register")
 	public String getMemberRegister(Model model) {
