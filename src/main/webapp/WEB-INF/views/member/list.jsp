@@ -11,6 +11,11 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
+	<style>
+		th {
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
@@ -22,40 +27,39 @@
 				<br>
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover">
+						<colgroup>
+							<col style="width: 4rem;">
+							<col style="width: auto;">
+							<col style="width: 5rem;">
+							<col style="width: 5rem;">
+							<col style="width: 12rem;">
+						</colgroup>
 						<thead class="thead-dark">
 						<tr>
-							<th class="text-center">번호</th>
-							<th>권한</th>
+							<th>번호</th>
 							<th>아이디</th>
-							<th>비밀번호</th>
+							<th>권한</th>
 							<th>이름</th>
 							<th>이메일</th>
-							<th class="text-center">수정</th>
-							<th class="text-center">삭제</th>
 						</tr>
 						</thead>
 						<tbody>
 						<c:forEach var="member" items="${members}">
 							<tr>
 								<td class="text-center">${member.memberNo}</td>
+								<td>
+									<a href="${path}/member/detail?memberNo=${member.memberNo}">${member.memberId}</a>
+								</td>
 								<c:choose>
 									<c:when test="${member.memberLevel == 1}">
-										<td>일반회원</td>
+										<td class="text-center">일반회원</td>
 									</c:when>
 									<c:when test="${member.memberLevel == 2}">
-										<td>관리자</td>
+										<td class="text-center">관리자</td>
 									</c:when>
 								</c:choose>
-								<td>${member.memberId}</td>
-								<td>${member.memberPw}</td>
-								<td>${member.memberName}</td>
+								<td class="text-center">${member.memberName}</td>
 								<td>${member.memberEmail}</td>
-								<td class="text-center">
-									<a href="${path}/member/modify?memberNo=${member.memberNo}">수정</a>
-								</td>
-								<td class="text-center">
-									<a href="${path}/member/delete?memberNo=${member.memberNo}">삭제</a>
-								</td>
 							</tr>
 						</c:forEach>
 						</tbody>

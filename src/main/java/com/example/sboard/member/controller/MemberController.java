@@ -22,7 +22,7 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 
-	
+
 	@GetMapping("/list")
 	public String getMemberList(HttpSession session, Model model) {
 		if (!validateIsLogin(session)) {
@@ -34,6 +34,19 @@ public class MemberController {
 
 		return "member/list";
 	}
+
+	@GetMapping("/detail")
+	public String getMemberDetail(HttpSession session, int memberNo, Model model) {
+		Member member = memberService.get(memberNo);
+		if (!validateIsSelf(session, member.getMemberId())) {
+			return "redirect:/error/permission";
+		}
+		
+		model.addAttribute("member", member);
+
+		return "member/detail";
+	}
+
 
 	@GetMapping("/register")
 	public String getMemberRegister(Model model) {

@@ -12,6 +12,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<%@ include file="/WEB-INF/views/templates/style.jsp" %>
 	<style>
+		th {
+			text-align: center;
+		}
+
 		#main {
 			position: relative;
 		}
@@ -38,14 +42,18 @@
 				</c:choose>
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover">
+						<colgroup>
+							<col style="width: 4rem;">
+							<col style="width: auto;">
+							<col style="width: 6rem;">
+							<col style="width: 12rem;">
+						</colgroup>
 						<thead class="thead-dark">
 						<tr>
-							<th class="text-center">번호</th>
+							<th>번호</th>
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성날짜</th>
-							<th class="text-center">수정</th>
-							<th class="text-center">삭제</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -55,14 +63,8 @@
 								<td>
 									<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
 								</td>
-								<td>${board.memberId}</td>
-								<td>${board.boardDate}</td>
-								<td class="text-center">
-									<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
-								</td>
-								<td class="text-center">
-									<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
-								</td>
+								<td class="text-center">${board.memberId}</td>
+								<td class="text-center">${board.boardDate}</td>
 							</tr>
 						</c:forEach>
 						</tbody>
