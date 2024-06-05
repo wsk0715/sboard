@@ -17,6 +17,10 @@ a {
 	text-decoration: none;
 }
 
+textarea {
+	resize: none;
+}
+
 .custom-container {
 	max-width: 960px !important;
 	margin: 0 auto !important;

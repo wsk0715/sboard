@@ -40,27 +40,27 @@
 					<table class="table table-bordered table-hover">
 						<thead class="thead-dark">
 						<tr>
-							<th>번호</th>
+							<th class="text-center">번호</th>
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성날짜</th>
-							<th>수정</th>
-							<th>삭제</th>
+							<th class="text-center">수정</th>
+							<th class="text-center">삭제</th>
 						</tr>
 						</thead>
 						<tbody>
 						<c:forEach var="board" items="${boards}">
 							<tr>
-								<td>${board.boardNo}</td>
+								<td class="text-center">${board.boardNo}</td>
 								<td>
 									<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
 								</td>
 								<td>${board.memberId}</td>
 								<td>${board.boardDate}</td>
-								<td>
+								<td class="text-center">
 									<a href="${path}/board/modify?boardNo=${board.boardNo}">수정</a>
 								</td>
-								<td>
+								<td class="text-center">
 									<a href="${path}/board/delete?boardNo=${board.boardNo}">삭제</a>
 								</td>
 							</tr>

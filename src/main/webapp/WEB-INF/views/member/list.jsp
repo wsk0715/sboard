@@ -21,23 +21,23 @@
 				<h2 class="text-center mt-5">회원 목록</h2>
 				<br>
 				<div class="table-responsive">
-					<table class="table">
+					<table class="table table-bordered table-hover">
 						<thead class="thead-dark">
 						<tr>
-							<th>번호</th>
+							<th class="text-center">번호</th>
 							<th>권한</th>
 							<th>아이디</th>
 							<th>비밀번호</th>
 							<th>이름</th>
 							<th>이메일</th>
-							<th>수정</th>
-							<th>삭제</th>
+							<th class="text-center">수정</th>
+							<th class="text-center">삭제</th>
 						</tr>
 						</thead>
 						<tbody>
 						<c:forEach var="member" items="${members}">
 							<tr>
-								<td>${member.memberNo}</td>
+								<td class="text-center">${member.memberNo}</td>
 								<c:choose>
 									<c:when test="${member.memberLevel == 1}">
 										<td>일반회원</td>
@@ -50,10 +50,10 @@
 								<td>${member.memberPw}</td>
 								<td>${member.memberName}</td>
 								<td>${member.memberEmail}</td>
-								<td>
+								<td class="text-center">
 									<a href="${path}/member/modify?memberNo=${member.memberNo}">수정</a>
 								</td>
-								<td>
+								<td class="text-center">
 									<a href="${path}/member/delete?memberNo=${member.memberNo}">삭제</a>
 								</td>
 							</tr>
