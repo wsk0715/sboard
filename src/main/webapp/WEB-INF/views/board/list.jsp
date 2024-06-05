@@ -26,8 +26,8 @@
 	<div class="container">
 		<table>
 			<tr>
-				<td>게시글번호</td>
-				<td>게시글제목</td>
+				<td>번호</td>
+				<td>제목</td>
 				<td>작성자</td>
 				<td>작성날짜</td>
 				<td>수정</td>

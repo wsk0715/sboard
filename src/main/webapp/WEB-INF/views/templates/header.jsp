@@ -35,4 +35,6 @@
 		</li>
 	</ul>
 </header>
+<br>
+<hr>
 <!-- header end -->
