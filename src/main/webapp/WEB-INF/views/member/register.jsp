@@ -59,74 +59,67 @@
 		</div>
 	</div>
 </section>
+<script src="${path}/resources/validation/validateMember.js"></script>
 <script>
-	let idChecked = false;
-	let memberId;
-
+	let isCheckedIdDuplicated = false;
 	$(document).ready(function () {
-		$("#checkIdBtn").click(function () {
-			memberId = $("#memberId").val();
-
-			if (!checkId()) {
+		$('#memberForm').submit(function (event) {
+			if (!checkPw(event)) {
 				return false;
 			}
-			return checkDuplicatedId();
-		})
+			if (!checkName(event)) {
+				return false;
+			}
+			if (!checkEmail(event)) {
+				return false;
+			}
 
-		// 아이디 수정 시 중복확인 여부 false
-		$('#memberId').change(function () {
-			$("#idCheckResult").text("").css("color", "red");
-			idChecked = false;
+			if (!isCheckedIdDuplicated) {
+				alert("아이디 중복 확인을 해주세요.");
+				return false;
+			}
 		});
 
-		const checkId = function () {
-			// 아이디 유효성 검사
-			if (memberId.length === 0) {
-				alert("아이디를 입력해 주세요.");
-				event.preventDefault();
-				$("#memberId").focus();
+		// 아이디 중복 확인 버튼
+		$('#checkIdBtn').click(function (event) {
+			if (!checkId(event)) {
 				return false;
 			}
-			if (memberId.length > 10) {
-				alert("아이디는 10자 이하로 입력해 주세요.");
-				event.preventDefault();
-				$("#memberId").focus();
-				return false;
-			}
+			return checkIdDuplicated({memberId: $('#memberId').val()});
+		});
 
-			return true;
-		}
+		// 아이디 수정 시 중복확인 여부 false 변경
+		$('#memberId').change(function () {
+			$("#idCheckResult").text("").css("color", "red");
+			isCheckedIdDuplicated = false;
+		});
+	});
 
-		const checkDuplicatedId = function () {
-			// 아이디 중복 확인
-			const data = {
-				memberId: memberId
-			}
-			$.ajax({
-				url: '/member/checkId',
-				method: 'POST',
-				contentType: 'application/json; charset=utf-8',
-				dataType: 'json',
-				data: JSON.stringify(data),
-				success: function (response) {
-					if (!response.exists) {
-						$("#idCheckResult").text("사용 가능한 아이디입니다.").css("color", "green");
-						idChecked = true;
-						return false;
-					} else {
-						$("#idCheckResult").text("아이디가 이미 존재합니다.").css("color", "red");
-						idChecked = false;
-						return true;
-					}
-				},
-				error: function (jqXHR, status, error) {
-					alert('에러가 발생했습니다.');
+	// 아이디 중복 확인(서버)
+	const checkIdDuplicated = function (data) {
+		$.ajax({
+			url: '/member/checkId',
+			method: 'POST',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			data: JSON.stringify(data),
+			success: function (response) {
+				if (!response.exists) {
+					$("#idCheckResult").text("사용 가능한 아이디입니다.").css("color", "green");
+					isCheckedIdDuplicated = true;
+					return true;
+				} else {
+					$("#idCheckResult").text("아이디가 이미 존재합니다.").css("color", "red");
+					isCheckedIdDuplicated = false;
 					return false;
 				}
-			});
-		}
-	});
+			},
+			error: function (jqXHR, status, error) {
+				alert('에러가 발생했습니다. 다시 시도해주세요.');
+				return true;
+			}
+		});
+	}
 </script>
-<script src="${path}/resources/validation/validateMember.js"></script>
 </body>
 </html>
