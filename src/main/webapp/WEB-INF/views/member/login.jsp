@@ -32,7 +32,7 @@
 					<div class="row text-center">
 						<div class="col-3"></div>
 						<div class="col-3 px-0">
-							<button type="submit" class="px-3 btn btn-primary btn-block">로그인</button>
+							<button type="submit" id="loginBtn" class="px-3 btn btn-primary btn-block">로그인</button>
 						</div>
 						<div class="col-3 px-0">
 							<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/'">취소</button>
@@ -45,5 +45,47 @@
 	</div>
 </section>
 <script src="${path}/resources/validation/validateMember.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#memberForm').submit(function (event) {
+			const memberId = $('#memberId').val();
+			const memberPw = $('#memberPw').val()
+
+			if (!checkId(event)) {
+				return false;
+			}
+			if (!checkPw(event)) {
+				return false;
+			}
+
+			event.preventDefault();
+			requestLogin({memberId: memberId, memberPw: memberPw});
+		});
+	});
+
+	// 아이디 비밀번호 확인(서버)
+	function requestLogin(data) {
+		$.ajax({
+			url: '/member/login',
+			method: 'POST',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			data: JSON.stringify(data),
+			success: function (response) {
+				if (response.answer === 'success') {
+					alert('로그인 성공!');
+					window.location.href = '${path}/';
+				} else if (response.answer === 'id') {
+					alert('해당하는 아이디가 없습니다.');
+				} else if (response.answer === 'pw') {
+					alert('비밀번호가 틀렸습니다.');
+				}
+			},
+			error: function (jqXHR, status, error) {
+				alert('에러가 발생했습니다. 다시 시도해주세요.');
+			}
+		});
+	}
+</script>
 </body>
 </html>

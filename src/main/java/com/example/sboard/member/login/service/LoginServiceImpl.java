@@ -16,8 +16,8 @@ public class LoginServiceImpl implements LoginService {
 
 
 	@Override
-	public Member getMemberFromLogin(Member member) {
-		return loginMapper.getMemberFromLogin(member);
+	public Member getMemberFromId(String memberId) {
+		return loginMapper.getMemberFromId(memberId);
 	}
 
 }
