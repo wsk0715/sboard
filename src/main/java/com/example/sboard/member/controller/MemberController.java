@@ -1,6 +1,6 @@
 package com.example.sboard.member.controller;
 
-import static com.example.sboard.utils.PermissionValidator.validateIsLogin;
+import static com.example.sboard.utils.PermissionValidator.validateIsAdmin;
 import static com.example.sboard.utils.PermissionValidator.validateIsSelf;
 
 import com.example.sboard.member.domain.Member;
@@ -25,7 +25,7 @@ public class MemberController {
 
 	@GetMapping("/list")
 	public String getMemberList(HttpSession session, Model model) {
-		if (!validateIsLogin(session)) {
+		if (!validateIsAdmin(session)) {
 			return "redirect:/error/permission";
 		}
 
@@ -59,7 +59,7 @@ public class MemberController {
 	public String postMemberRegister(Member member) {
 		memberService.register(member);
 
-		return "redirect:/";
+		return "redirect:/member/login";
 	}
 
 	@GetMapping("/modify")
