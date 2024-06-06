@@ -63,9 +63,9 @@ public class MemberController {
 	@ResponseBody
 	public Map<String, Boolean> checkId(@RequestBody Map<String, String> request) {
 		String memberId = request.get("memberId");
-		boolean exists = memberService.isExistId(memberId);
+		Integer memberNo = memberService.getMemberNoById(memberId);
 		Map<String, Boolean> response = new HashMap<>();
-		response.put("exists", exists);
+		response.put("exists", memberNo != null);
 		return response;
 	}
 

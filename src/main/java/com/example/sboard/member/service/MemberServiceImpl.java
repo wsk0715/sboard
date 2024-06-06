@@ -22,8 +22,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean isExistId(String memberId) {
-		return memberMapper.isExistId(memberId) > 0;
+	public Integer getMemberNoById(String memberId) {
+		return memberMapper.getMemberById(memberId);
 	}
 
 	@Override

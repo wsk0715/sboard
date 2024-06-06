@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemberMapper {
 	Member get(int memberNo);
 
-	int isExistId(String memberId);
+	Integer getMemberById(String memberId);
 
 	List<Member> getAll();
 

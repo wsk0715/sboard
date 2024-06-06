@@ -7,7 +7,7 @@ public interface MemberService {
 
 	Member get(int memberNo);
 
-	boolean isExistId(String memberId);
+	Integer getMemberNoById(String memberId);
 
 	List<Member> getAll();
 

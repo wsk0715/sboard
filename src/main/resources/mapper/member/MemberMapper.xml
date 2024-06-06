@@ -20,8 +20,8 @@
     WHERE m_no = #{memberNo};
   </select>
 
-  <select id="isExistId" parameterType="String" resultType="int">
-    SELECT COUNT(1)
+  <select id="getMemberNoById" parameterType="String" resultType="int">
+    SELECT m_no
     FROM tb_member
     WHERE m_id = #{memberId};
   </select>

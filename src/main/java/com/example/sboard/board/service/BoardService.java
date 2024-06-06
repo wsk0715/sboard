@@ -4,7 +4,7 @@ import com.example.sboard.board.domain.Board;
 import java.util.List;
 
 public interface BoardService {
-
+	
 	Board get(int boardNo);
 
 	List<Board> getAll();
