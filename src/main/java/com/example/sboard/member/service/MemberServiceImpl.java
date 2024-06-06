@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Integer getMemberNoById(String memberId) {
-		return memberMapper.getMemberById(memberId);
+		return memberMapper.getMemberNoById(memberId);
 	}
 
 	@Override

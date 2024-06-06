@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemberMapper {
 	Member get(int memberNo);
 
-	Integer getMemberById(String memberId);
+	Integer getMemberNoById(String memberId);
 
 	List<Member> getAll();
 
