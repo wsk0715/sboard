@@ -62,9 +62,21 @@
 		</div>
 	</div>
 </section>
-<script>
-	idChecked = true;
-</script>
 <script src="${path}/resources/validation/validateMember.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#memberForm').submit(function (event) {
+			if (!checkPw(event)) {
+				return false;
+			}
+			if (!checkName(event)) {
+				return false;
+			}
+			if (!checkEmail(event)) {
+				return false;
+			}
+		});
+	});
+</script>
 </body>
 </html>
