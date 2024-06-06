@@ -57,11 +57,13 @@
 						<a href="${path}/member/modify?memberNo=${member.memberNo}" class="btn btn-warning">수정</a>
 					</div>
 					<div class="col-3 px-0">
-						<a href="${path}/member/delete?memberNo=${member.memberNo}" class="btn btn-danger">삭제</a>
+						<a id="deleteBtn" href="${path}/member/delete?memberNo=${member.memberNo}" class="btn btn-danger">삭제</a>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </section>
+<script src="${path}/resources/script/crud/delete.js"></script>
 </body>
 </html>

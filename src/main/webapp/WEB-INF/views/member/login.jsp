@@ -44,7 +44,7 @@
 		</div>
 	</div>
 </section>
-<script src="${path}/resources/validation/validateMember.js"></script>
+<script src="${path}/resources/script/validation/validateMember.js"></script>
 <script>
 	$(document).ready(function () {
 		$('#memberForm').submit(function (event) {

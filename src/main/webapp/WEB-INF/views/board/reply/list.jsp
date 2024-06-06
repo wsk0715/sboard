@@ -13,7 +13,7 @@
 			<small class="text-muted"><b>${reply.memberId}</b> | ${reply.replyDate}</small>
 			<c:if test="${isLogin}">
 				<div class="text-right" style="position: absolute; top: 1.5rem; right: 0.5rem">
-					<a href="${path}/board/reply/delete?replyNo=${reply.replyNo}" class="btn btn-danger btn-m">삭제</a>
+					<a id="deleteBtn" href="${path}/board/reply/delete?replyNo=${reply.replyNo}" class="btn btn-danger btn-m">삭제</a>
 				</div>
 			</c:if>
 		</div>

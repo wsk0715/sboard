@@ -41,7 +41,7 @@
 			<c:if test="${sessionScope.sessionId == board.memberId}">
 				<div id="button-container">
 					<a href="${path}/board/modify?boardNo=${board.boardNo}" class="btn btn-warning">수정</a>
-					<a href="${path}/board/delete?boardNo=${board.boardNo}" class="btn btn-danger">삭제</a>
+					<a id="deleteBtn" href="${path}/board/delete?boardNo=${board.boardNo}" class="btn btn-danger">삭제</a>
 				</div>
 			</c:if>
 		</div>
@@ -77,5 +77,6 @@
 	<%@ include file="/WEB-INF/views/board/reply/insert.jsp" %>
 	<%@ include file="/WEB-INF/views/board/reply/list.jsp" %>
 </section>
+<script src="${path}/resources/script/crud/delete.js"></script>
 </body>
 </html>

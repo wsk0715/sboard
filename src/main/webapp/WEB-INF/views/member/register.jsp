@@ -59,7 +59,7 @@
 		</div>
 	</div>
 </section>
-<script src="${path}/resources/validation/validateMember.js"></script>
+<script src="${path}/resources/script/validation/validateMember.js"></script>
 <script>
 	let isCheckedIdDuplicated = false;
 	$(document).ready(function () {
