@@ -62,6 +62,9 @@
 		</div>
 	</div>
 </section>
+<script>
+	idChecked = true;
+</script>
 <script src="${path}/resources/validation/validateMember.js"></script>
 </body>
 </html>

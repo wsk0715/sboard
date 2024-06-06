@@ -7,6 +7,8 @@ public interface MemberService {
 
 	Member get(int memberNo);
 
+	boolean isExistId(String memberId);
+
 	List<Member> getAll();
 
 	int getLastIndex();
