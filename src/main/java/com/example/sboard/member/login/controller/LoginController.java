@@ -28,6 +28,7 @@ public class LoginController {
 		member = loginService.getMemberFromLogin(member);
 
 		if (member.getMemberLevel() > 0) {
+			session.setAttribute("sessionNo", member.getMemberNo());
 			session.setAttribute("sessionId", member.getMemberId());
 			session.setAttribute("sessionLevel", member.getMemberLevel());
 
@@ -38,8 +39,7 @@ public class LoginController {
 
 	@GetMapping("/logout")
 	public String getMemberLogout(HttpSession session) {
-		session.removeAttribute("sessionId");
-		session.removeAttribute("sessionLevel");
+		session.invalidate();
 
 		return "redirect:/";
 	}

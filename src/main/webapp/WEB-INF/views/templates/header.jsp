@@ -17,11 +17,18 @@
 						<li class="col-2 px-0">
 							<a href="${path}/member/logout">로그아웃</a>
 						</li>
-						<c:if test="${sessionScope.sessionLevel > 1}">
-							<li class="col-2 px-0">
-								<a href="${path}/member/list">회원 목록</a>
-							</li>
-						</c:if>
+						<c:choose>
+							<c:when test="${sessionScope.sessionLevel > 1}">
+								<li class="col-2 px-0">
+									<a href="${path}/member/list">회원 목록</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="col-2 px-0">
+									<a href="${path}/member/detail?memberNo=${sessionScope.sessionNo}">내 정보</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
 					</c:when>
 					<c:otherwise>
 						<li class="col-2 px-0">

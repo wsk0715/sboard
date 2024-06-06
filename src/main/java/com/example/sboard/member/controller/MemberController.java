@@ -82,7 +82,7 @@ public class MemberController {
 
 		memberService.modify(member);
 
-		return "redirect:list";
+		return "redirect:/member/detail?memberNo=" + member.getMemberNo();
 	}
 
 	@GetMapping("/delete")

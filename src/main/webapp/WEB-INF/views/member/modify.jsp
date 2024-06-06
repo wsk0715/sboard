@@ -32,7 +32,7 @@
 					</c:if>
 					<div class="form-group">
 						<label for="memberId">아이디</label>
-						<input type="text" class="form-control" id="memberId" name="memberId" value="${member.memberId}" />
+						<input type="text" class="form-control" id="memberId" name="memberId" value="${member.memberId}" readonly />
 					</div>
 					<div class="form-group">
 						<label for="memberPw">비밀번호</label>
