@@ -43,7 +43,7 @@
 
   <update id="modify" parameterType="Member">
     UPDATE tb_member
-    SET m_level = #{memberLevel},
+    SET m_level = IFNULL(NULLIF(#{memberLevel}, ''), 1),
         m_id    = #{memberId},
         m_pw    = #{memberPw},
         m_name  = #{memberName},
