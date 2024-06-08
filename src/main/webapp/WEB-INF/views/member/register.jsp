@@ -57,6 +57,7 @@
 		</div>
 	</div>
 </section>
+<%@ include file="/WEB-INF/views/templates/footer.jsp" %>
 <script src="${path}/resources/script/validation/validateMember.js"></script>
 <script>
 	let isCheckedIdDuplicated = false;

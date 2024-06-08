@@ -65,6 +65,7 @@
 		</div>
 	</div>
 </section>
+<%@ include file="/WEB-INF/views/templates/footer.jsp" %>
 <script src="${path}/resources/script/crud/delete.js"></script>
 </body>
 </html>

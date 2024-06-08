@@ -68,5 +68,6 @@
 		</div>
 	</div>
 </section>
+<%@ include file="/WEB-INF/views/templates/footer.jsp" %>
 </body>
 </html>

@@ -25,6 +25,7 @@
 		</div>
 	</div>
 </section>
+<%@ include file="/WEB-INF/views/templates/footer.jsp" %>
 <script>
 	$(document).ready(function () {
 		const countdownElement = document.getElementById('countdown');

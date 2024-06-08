@@ -5,8 +5,8 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- header start-->
-<header class="mb-5">
-	<div class="container">
+<header class="px-5">
+	<div class="container px-5">
 		<div class="row align-items-center">
 			<h1 class="col-3">
 				<a href="${path}/">sboard</a>
@@ -45,6 +45,6 @@
 			</ul>
 		</div>
 	</div>
+	<hr>
 </header>
 <!-- header end -->
-<hr>

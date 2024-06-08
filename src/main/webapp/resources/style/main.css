@@ -1,14 +1,18 @@
 body {
-	padding: 2rem 4%;
+	padding: 2rem 0 0;
 }
 
-ul {
+section {
+	min-height: 72vh
+}
+
+header ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-li {
+header ul li {
 	display: inline;
 	margin-right: 10px;
 }
