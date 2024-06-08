@@ -66,7 +66,7 @@ public class BoardController {
 
 		boardService.insert(board);
 
-		return "redirect:list";
+		return "redirect:/board/detail?boardNo=" + board.getBoardNo();
 	}
 
 	@GetMapping("/modify")
@@ -89,7 +89,7 @@ public class BoardController {
 
 		boardService.modify(board);
 
-		return "redirect:list";
+		return "redirect:/board/detail?boardNo=" + board.getBoardNo();
 	}
 
 	@GetMapping("/delete")
@@ -102,7 +102,7 @@ public class BoardController {
 		replyService.deleteAllByBoardNo(boardNo);
 		boardService.delete(boardNo);
 
-		return "redirect:list";
+		return "redirect:/board/list";
 	}
 
 }
