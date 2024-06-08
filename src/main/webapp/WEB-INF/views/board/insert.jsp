@@ -46,5 +46,23 @@
 		</div>
 	</div>
 </section>
+<script src="${path}/resources/script/validation/validateBoard.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#boardForm').submit(function () {
+			if (!checkBoardTitle()) {
+				return false;
+			}
+			if (!checkBoardBody()) {
+				return false;
+			}
+		});
+		$('#replyForm').submit(function () {
+			if (!checkReplyBody()) {
+				return false;
+			}
+		});
+	});
+</script>
 </body>
 </html>
