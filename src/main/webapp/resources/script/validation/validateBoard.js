@@ -1,6 +1,5 @@
 const checkBoardTitle = function () {
 	const boardTitle = $('#boardTitle').val();
-	// 아이디 유효성 검사
 	if (boardTitle.length === 0) {
 		alert('제목을 입력해 주세요.');
 		$('#boardTitle').focus();
@@ -17,7 +16,6 @@ const checkBoardTitle = function () {
 
 const checkBoardBody = function () {
 	const boardBody = $('#boardBody').val();
-	// 비밀번호 유효성 검사
 	if (boardBody.length === 0) {
 		alert('내용을 입력해 주세요.');
 		$('#boardBody').focus();
@@ -34,7 +32,6 @@ const checkBoardBody = function () {
 
 const checkReplyBody = function () {
 	const replyBody = $('#replyBody').val();
-	// 이름 유효성 검사
 	if (replyBody.length === 0) {
 		alert('댓글 내용을 입력해 주세요.');
 		$('#replyBody').focus();
@@ -43,6 +40,22 @@ const checkReplyBody = function () {
 	if (replyBody.length > 80) {
 		alert('댓글 내용은 80자 이하로 입력해 주세요.');
 		$('#replyBody').focus();
+		return false;
+	}
+
+	return true;
+}
+
+const checkSearchValue = function () {
+	const searchValue = $('#searchValue').val();
+	if (searchValue.length === 0) {
+		alert('검색어를 입력해 주세요.');
+		$('#searchValue').focus();
+		return false;
+	}
+	if (searchValue.length > 10) {
+		alert('검색어는 10자 이하로 입력해 주세요.');
+		$('#searchValue').focus();
 		return false;
 	}
 
