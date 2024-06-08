@@ -21,7 +21,23 @@
 
   <select id="getAll" resultMap="BoardResultMap">
     SELECT b_no, m_id, b_title, b_body, b_date
-    FROM tb_board;
+    FROM tb_board
+    ORDER BY b_no DESC;
+  </select>
+
+  <select id="getSearch" resultMap="BoardResultMap">
+    SELECT b_no, m_id, b_title, b_body, b_date
+    FROM tb_board
+    WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%')
+    ORDER BY b_no DESC;
+  </select>
+
+  <select id="getMultiSearch" resultMap="BoardResultMap">
+    SELECT b_no, m_id, b_title, b_body, b_date
+    FROM tb_board
+    WHERE b_title LIKE CONCAT('%', #{searchValue}, '%')
+       OR b_body LIKE CONCAT('%', #{searchValue}, '%')
+    ORDER BY b_no DESC;
   </select>
 
   <select id="getLastIndex" resultType="int">

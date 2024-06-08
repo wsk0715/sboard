@@ -71,10 +71,36 @@
 						</tbody>
 					</table>
 				</div>
+				<div id="searchDiv" class="container d-flex justify-content-center mt-4">
+					<div class="col-6">
+						<div id="searchFormDiv" class="input-group w-100">
+							<form id="searchForm" action="${path}/board/list" class="d-flex" method="get">
+								<select id="searchType" name="searchType" class="form-select w-auto">
+									<option value="b_title">제목</option>
+									<option value="b_body">내용</option>
+									<option value="b_title_body">제목+내용</option>
+									<option value="m_id">작성자</option>
+								</select>
+								<input type="text" id="searchValue" name="searchValue" class="form-control">
+								<button type="submit" class="btn btn-outline-primary w-25">검색</button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>
+<script src="${path}/resources/script/validation/validateBoard.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#searchFormDiv').submit(function () {
+			if (!checkSearchValue()) {
+				return false;
+			}
+		});
+	});
+</script>
 </body>
 </html>

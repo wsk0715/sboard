@@ -27,6 +27,14 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	public List<Board> getSearch(String searchType, String searchValue) {
+		if (searchType.equals("b_title_body")) {
+			return boardMapper.getMultiSearch(searchValue);
+		}
+		return boardMapper.getSearch(searchType, searchValue);
+	}
+
+	@Override
 	public int getLastIndex() {
 		return boardMapper.getLastIndex();
 	}

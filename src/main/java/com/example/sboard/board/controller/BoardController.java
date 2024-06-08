@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/board")
@@ -28,8 +29,15 @@ public class BoardController {
 
 
 	@GetMapping("/list")
-	public String getBoardList(Model model) {
-		List<Board> boards = boardService.getAll();
+	public String getBoardList(@RequestParam(value = "searchType", defaultValue = "") String searchType,
+							   @RequestParam(value = "searchValue", defaultValue = "") String searchValue,
+							   Model model) {
+		List<Board> boards;
+		if (searchType.isEmpty()) {
+			boards = boardService.getAll();
+		} else {
+			boards = boardService.getSearch(searchType, searchValue);
+		}
 		model.addAttribute("boards", boards);
 
 		return "board/list";
