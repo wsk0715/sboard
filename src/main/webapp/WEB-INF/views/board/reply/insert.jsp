@@ -5,9 +5,8 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <c:set var="isLogin" value="${sessionScope.sessionLevel > 0}" />
-<div class="container reply-write">
-	<h3>댓글</h3>
-	<form action="${path}/board/reply/insert" method="post">
+<div id="replyFormDiv" class="p-3">
+	<form id="replyForm" action="${path}/board/reply/insert" method="post">
 		<input type="hidden" name="boardNo" value="${board.boardNo}" />
 		<input type="hidden" name="memberId" value="${sessionScope.sessionId}" />
 		<div class="row">

@@ -26,17 +26,19 @@
 	</div>
 </section>
 <script>
-	const countdownElement = document.getElementById('countdown');
-	let countdown = 3;
+	$(document).ready(function () {
+		const countdownElement = document.getElementById('countdown');
+		let countdown = 3;
 
-	const countdownInterval = setInterval(function () {
-		countdownElement.textContent = --countdown;
+		const countdownInterval = setInterval(function () {
+			countdownElement.textContent = --countdown;
 
-		if (countdown <= 0) {
-			clearInterval(countdownInterval);
-			window.location.href = '${path}/';
-		}
-	}, 1000);
+			if (countdown <= 0) {
+				clearInterval(countdownInterval);
+				window.location.href = '${path}/';
+			}
+		}, 1000);
+	});
 </script>
 </body>
 </html>

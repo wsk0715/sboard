@@ -19,12 +19,12 @@
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<h2 class="text-center mt-5">회원 가입</h2>
-				<form id="memberForm" action="${path}/member/register" method="post">
-					<input type="text" name="memberNo" value="${memberNo}" readonly hidden />
-					<div class="form-group">
+				<div id="memberFormDiv">
+					<form id="memberForm" action="${path}/member/register" method="post">
+						<input type="text" name="memberNo" value="${memberNo}" readonly hidden />
 						<label for="memberId">아이디</label>
 						<div class="input-group">
-							<input type="text" class="form-control" id="memberId" name="memberId" value="${member.memberId}" />
+							<input type="text" class="form-control" id="memberId" name="memberId" value="${member.memberId}" placeholder="아이디를 입력하세요" />
 							<div class="input-group-append">
 								<button type="button" id="checkIdBtn" class="btn btn-warning">중복 확인</button>
 							</div>
@@ -42,19 +42,17 @@
 							<label for="memberEmail">이메일</label>
 							<input type="text" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일을 입력하세요">
 						</div>
-						<br>
-						<div class="row text-center">
+						<div class="row text-center mt-4">
 							<div class="col-3"></div>
 							<div class="col-3 px-0">
 								<button type="submit" class="px-3 btn btn-primary btn-block">등록</button>
 							</div>
 							<div class="col-3 px-0">
-								<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/member/list'">취소</button>
+								<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/'">취소</button>
 							</div>
-							<div class="col-3"></div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -63,26 +61,26 @@
 <script>
 	let isCheckedIdDuplicated = false;
 	$(document).ready(function () {
-		$('#memberForm').submit(function (event) {
-			if (!checkPw(event)) {
-				return false;
-			}
-			if (!checkName(event)) {
-				return false;
-			}
-			if (!checkEmail(event)) {
-				return false;
-			}
-
+		$('#memberForm').submit(function () {
 			if (!isCheckedIdDuplicated) {
 				alert("아이디 중복 확인을 해주세요.");
+				$('#memberId').focus();
+				return false;
+			}
+			if (!checkPw()) {
+				return false;
+			}
+			if (!checkName()) {
+				return false;
+			}
+			if (!checkEmail()) {
 				return false;
 			}
 		});
 
 		// 아이디 중복 확인 버튼
-		$('#checkIdBtn').click(function (event) {
-			if (!checkId(event)) {
+		$('#checkIdBtn').click(function () {
+			if (!checkId()) {
 				return false;
 			}
 			return checkIdDuplicated({memberId: $('#memberId').val()});

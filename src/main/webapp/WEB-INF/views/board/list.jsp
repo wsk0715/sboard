@@ -16,14 +16,14 @@
 			text-align: center;
 		}
 
-		#main {
+		#headDiv {
 			position: relative;
 		}
 
 		#button-write {
 			position: absolute;
 			right: 0;
-			top: 3rem;
+			top: 0;
 		}
 	</style>
 </head>
@@ -32,15 +32,16 @@
 <section>
 	<div class="container custom-container">
 		<div class="row justify-content-center">
-			<div id="main" class="col-md-12">
-				<h2 class="text-center mt-5">게시글 목록</h2>
-				<br>
-				<c:choose>
-					<c:when test="${sessionScope.sessionId != null}">
-						<a id="button-write" href="${path}/board/insert" class="btn btn-primary">게시글 작성</a>
-					</c:when>
-				</c:choose>
-				<div class="table-responsive">
+			<div class="col-md-12">
+				<div id="headDiv">
+					<h2 class="text-center mt-5">게시글 목록</h2>
+					<c:choose>
+						<c:when test="${sessionScope.sessionId != null}">
+							<a id="button-write" href="${path}/board/insert" class="btn btn-primary">게시글 작성</a>
+						</c:when>
+					</c:choose>
+				</div>
+				<div id="mainDiv" class="table-responsive mt-4">
 					<table class="table table-bordered table-hover">
 						<colgroup>
 							<col style="width: 4rem;">

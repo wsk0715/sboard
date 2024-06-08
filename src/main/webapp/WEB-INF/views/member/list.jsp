@@ -24,8 +24,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-12">
 				<h2 class="text-center mt-5">회원 목록</h2>
-				<br>
-				<div class="table-responsive">
+				<div id="mainDiv" class="table-responsive mt-4">
 					<table class="table table-bordered table-hover">
 						<colgroup>
 							<col style="width: 4rem;">

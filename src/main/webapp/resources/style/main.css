@@ -21,7 +21,12 @@ textarea {
 	resize: none;
 }
 
+pre {
+	font-family: inherit;
+}
+
 .custom-container {
 	max-width: 960px !important;
 	margin: 0 auto !important;
 }
+

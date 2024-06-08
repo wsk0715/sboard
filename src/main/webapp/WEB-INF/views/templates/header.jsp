@@ -5,7 +5,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- header start-->
-<header>
+<header class="mb-5">
 	<div class="container">
 		<div class="row align-items-center">
 			<h1 class="col-3">
@@ -46,6 +46,5 @@
 		</div>
 	</div>
 </header>
-<br>
-<hr>
 <!-- header end -->
+<hr>
