@@ -55,7 +55,7 @@
 						<c:if test="${isSelf || isAdmin}">
 							<div id="button-container">
 								<a href="${path}/board/modify?boardNo=${board.boardNo}" class="btn btn-warning mx-3">수정</a>
-								<a id="deleteBtn" href="${path}/board/delete?boardNo=${board.boardNo}" class="btn btn-danger">삭제</a>
+								<a href="${path}/board/delete?boardNo=${board.boardNo}" class="deleteBtn btn btn-danger">삭제</a>
 							</div>
 						</c:if>
 					</div>

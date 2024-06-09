@@ -57,7 +57,7 @@
 							<a href="${path}/member/modify?memberNo=${member.memberNo}" class="btn btn-warning">수정</a>
 						</div>
 						<div class="col-3 px-0">
-							<a id="deleteBtn" href="${path}/member/delete?memberNo=${member.memberNo}" class="btn btn-danger">삭제</a>
+							<a href="${path}/member/delete?memberNo=${member.memberNo}" class="deleteBtn btn btn-danger">삭제</a>
 						</div>
 					</div>
 				</div>

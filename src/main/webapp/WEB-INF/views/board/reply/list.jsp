@@ -16,7 +16,7 @@
 			</small>
 			<c:if test="${isSelf || isAdmin}">
 				<div class="text-right" style="position: absolute; top: 1.5rem; right: 0.5rem">
-					<a id="deleteBtn" href="${path}/board/reply/delete?replyNo=${reply.replyNo}" class="btn btn-danger btn-m">삭제</a>
+					<a href="${path}/board/reply/delete?replyNo=${reply.replyNo}" class="deleteBtn btn btn-danger btn-m">삭제</a>
 				</div>
 			</c:if>
 		</div>
