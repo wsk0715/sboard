@@ -22,22 +22,38 @@
   <select id="getAll" resultMap="BoardResultMap">
     SELECT b_no, m_id, b_title, b_body, b_date
     FROM tb_board
-    ORDER BY b_no DESC;
+    ORDER BY b_no DESC
+    LIMIT #{pageSize} OFFSET #{pageValue};
   </select>
 
   <select id="getSearch" resultMap="BoardResultMap">
     SELECT b_no, m_id, b_title, b_body, b_date
     FROM tb_board
     WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%')
-    ORDER BY b_no DESC;
+    ORDER BY b_no DESC
+    LIMIT #{pageSize} OFFSET #{pageValue};
   </select>
 
-  <select id="getMultiSearch" resultMap="BoardResultMap">
+  <select id="getSearchMulti" resultMap="BoardResultMap">
     SELECT b_no, m_id, b_title, b_body, b_date
     FROM tb_board
     WHERE b_title LIKE CONCAT('%', #{searchValue}, '%')
        OR b_body LIKE CONCAT('%', #{searchValue}, '%')
-    ORDER BY b_no DESC;
+    ORDER BY b_no DESC
+    LIMIT #{pageSize} OFFSET #{pageValue};
+  </select>
+
+  <select id="getTotalElements" resultType="int">
+    SELECT COUNT(1)
+    FROM tb_board
+    WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%');
+  </select>
+
+  <select id="getTotalElementsMulti" resultType="int">
+    SELECT COUNT(1)
+    FROM tb_board
+    WHERE b_title LIKE CONCAT('%', #{searchValue}, '%')
+       OR b_body LIKE CONCAT('%', #{searchValue}, '%');
   </select>
 
   <select id="getLastIndex" resultType="int">

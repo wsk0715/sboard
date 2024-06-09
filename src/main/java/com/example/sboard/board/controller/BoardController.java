@@ -27,18 +27,35 @@ public class BoardController {
 		this.replyService = replyService;
 	}
 
-
 	@GetMapping("/list")
-	public String getBoardList(@RequestParam(value = "searchType", defaultValue = "") String searchType,
+	public String getBoardList(@RequestParam(value = "searchType", defaultValue = "b_title") String searchType,
 							   @RequestParam(value = "searchValue", defaultValue = "") String searchValue,
+							   @RequestParam(value = "pageValue", defaultValue = "1") int pageValue,
 							   Model model) {
 		List<Board> boards;
 		if (searchType.isEmpty()) {
-			boards = boardService.getAll();
+			boards = boardService.getAll(10, pageValue);
 		} else {
-			boards = boardService.getSearch(searchType, searchValue);
+			boards = boardService.getSearch(searchType, searchValue, 10, pageValue);
 		}
+
+		int maxPage = (boardService.getTotalElements(searchType, searchValue) - 1) / 10 + 1;
+		int beginPage = Math.max(1, pageValue - 2);
+		int endPage = Math.min(maxPage, pageValue + 2);
+
+		if (endPage - beginPage < 4) {
+			if (beginPage == 1) {
+				endPage = Math.min(beginPage + 4, maxPage);
+			} else {
+				beginPage = Math.max(endPage - 4, 1);
+			}
+		}
+
 		model.addAttribute("boards", boards);
+		model.addAttribute("currentPage", pageValue);
+		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("beginPage", beginPage);
+		model.addAttribute("endPage", endPage);
 
 		return "board/list";
 	}

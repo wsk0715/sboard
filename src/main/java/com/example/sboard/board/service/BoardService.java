@@ -7,9 +7,11 @@ public interface BoardService {
 
 	Board get(int boardNo);
 
-	List<Board> getAll();
+	List<Board> getAll(int pageSize, int pageValue);
 
-	List<Board> getSearch(String searchType, String searchValue);
+	List<Board> getSearch(String searchType, String searchValue, int pageSize, int pageValue);
+
+	int getTotalElements(String searchType, String searchValue);
 
 	int getLastIndex();
 

@@ -73,7 +73,53 @@
 						</tbody>
 					</table>
 				</div>
-				<div id="searchDiv" class="container d-flex justify-content-center mt-4">
+				<div id="pageDiv" class="container d-flex justify-content-center mt-2">
+					<ul class="pagination">
+						<c:choose>
+							<c:when test="${currentPage > 1}">
+								<li class="page-item">
+									<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${currentPage - 1}">
+										<span>&laquo;</span>
+									</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item">
+									<span class="page-link">&laquo;</span>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						<c:forEach var="i" begin="${beginPage}" end="${endPage}">
+							<li class="page-item ${i == currentPage ? 'active' : ''}">
+								<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${i}">
+										${i}
+								</a>
+							</li>
+						</c:forEach>
+						<c:if test="${endPage < beginPage + 4}">
+							<c:forEach var="j" begin="1" end="${beginPage + 4 - endPage}">
+								<li class="page-item disabled">
+									<a class="page-link" href="#">&nbsp;</a>
+								</li>
+							</c:forEach>
+						</c:if>
+						<c:choose>
+							<c:when test="${currentPage < maxPage}">
+								<li class="page-item">
+									<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${currentPage + 1}">
+										<span>&raquo;</span>
+									</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item">
+									<span class="page-link">&raquo;</span>
+								</li>
+							</c:otherwise>
+						</c:choose>
+					</ul>
+				</div>
+				<div id="searchDiv" class="container d-flex justify-content-center mt-2">
 					<div class="col-6">
 						<div id="searchFormDiv" class="input-group w-100 justify-content-center">
 							<form id="searchForm" action="${path}/board/list" class="d-flex" method="get">
@@ -96,6 +142,7 @@
 <%@ include file="/WEB-INF/views/templates/footer.jsp" %>
 <script src="${path}/resources/script/validation/validateBoard.js"></script>
 <script>
+	let maxPages;
 	$(document).ready(function () {
 		$('#searchFormDiv').submit(function () {
 			if (!checkSearchValue()) {
