@@ -29,7 +29,6 @@ public class MemberController {
 	public String getMemberList(HttpSession session,
 								@RequestParam(value = "searchType", defaultValue = "") String searchType,
 								@RequestParam(value = "searchValue", defaultValue = "") String searchValue,
-								@RequestParam(value = "pageSize", defaultValue = "10") int pageSize,
 								@RequestParam(value = "pageValue", defaultValue = "1") int pageValue,
 								Model model) {
 		if (!validateIsAdmin(session)) {
@@ -37,9 +36,9 @@ public class MemberController {
 		}
 		List<Member> members;
 		if (searchType.isEmpty()) {
-			members = memberService.getAll(pageSize, pageValue);
+			members = memberService.getAll(10, pageValue);
 		} else {
-			members = memberService.getSearch(searchType, searchValue, pageSize, pageValue);
+			members = memberService.getSearch(searchType, searchValue, 10, pageValue);
 		}
 		int totalElements = memberService.getTotalElements(searchType, searchValue);
 		Pagination<Member> page = new Pagination<>(members, pageValue, totalElements);
