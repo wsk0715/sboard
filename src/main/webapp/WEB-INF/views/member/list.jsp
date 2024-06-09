@@ -66,6 +66,21 @@
 				</div>
 				<div id="pageDiv" class="container d-flex justify-content-center mt-2">
 					<ul class="pagination">
+						<!-- 첫 페이지 버튼 -->
+						<c:choose>
+							<c:when test="${page.currentPage > 1}">
+								<li class="page-item">
+									<a class="page-link" href="${path}/member/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${1}">
+										<span>&laquo;&laquo;</span>
+									</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item">
+									<span class="page-link">&laquo;&laquo;</span>
+								</li>
+							</c:otherwise>
+						</c:choose>
 						<!-- 화살표 버튼(이전) -->
 						<c:choose>
 							<c:when test="${page.currentPage > 1}">
@@ -109,6 +124,21 @@
 							<c:otherwise>
 								<li class="page-item">
 									<span class="page-link">&raquo;</span>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						<!-- 마지막 페이지 버튼-->
+						<c:choose>
+							<c:when test="${page.currentPage < page.maxPage}">
+								<li class="page-item">
+									<a class="page-link" href="${path}/member/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${page.maxPage}">
+										<span>&raquo;&raquo;</span>
+									</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item">
+									<span class="page-link">&raquo;&raquo;</span>
 								</li>
 							</c:otherwise>
 						</c:choose>
