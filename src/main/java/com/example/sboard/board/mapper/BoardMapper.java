@@ -9,20 +9,16 @@ import org.apache.ibatis.annotations.Param;
 public interface BoardMapper {
 	Board get(int boardNo);
 
-	List<Board> getAll(@Param("pageSize") int pageSize, @Param("pageValue") int pageValue);
+	List<Board> getAll(@Param("pageSize") int pageSize,
+					   @Param("pageValue") int pageValue);
 
 	List<Board> getSearch(@Param("searchType") String searchType,
 						  @Param("searchValue") String searchValue,
 						  @Param("pageSize") int pageSize,
 						  @Param("pageValue") int pageValue);
 
-	List<Board> getSearchMulti(@Param("searchValue") String searchValue,
-							   @Param("pageSize") int pageSize,
-							   @Param("pageValue") int pageValue);
-
-	int getTotalElements(@Param("searchType") String searchType, @Param("searchValue") String searchValue);
-
-	int getTotalElementsMulti(String searchValue);
+	int getTotalElements(@Param("searchType") String searchType,
+						 @Param("searchValue") String searchValue);
 
 	int getLastIndex();
 

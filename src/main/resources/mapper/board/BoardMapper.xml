@@ -30,7 +30,7 @@
     SELECT b_no, m_id, b_title, b_body, b_date
     FROM tb_board
     <where>
-      <include refid="searchTargetCondition"></include>
+      <include refid="searchTargetCondition"/>
     </where>
     ORDER BY b_no DESC
     LIMIT #{pageSize} OFFSET #{pageValue};

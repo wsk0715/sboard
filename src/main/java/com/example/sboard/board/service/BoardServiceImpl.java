@@ -23,16 +23,16 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<Board> getAll(int pageSize, int pageValue) {
-		pageValue = (pageValue - 1) * 10;
+		pageValue = (pageValue - 1) * pageSize;
 
-		return boardMapper.getAll(10, pageValue);
+		return boardMapper.getAll(pageSize, pageValue);
 	}
 
 	@Override
 	public List<Board> getSearch(String searchType, String searchValue, int pageSize, int pageValue) {
-		pageValue = (pageValue - 1) * 10;
-		
-		return boardMapper.getSearch(searchType, searchValue, 10, pageValue);
+		pageValue = (pageValue - 1) * pageSize;
+
+		return boardMapper.getSearch(searchType, searchValue, pageSize, pageValue);
 	}
 
 	@Override

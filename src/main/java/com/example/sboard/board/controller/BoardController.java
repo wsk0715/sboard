@@ -31,18 +31,17 @@ public class BoardController {
 	@GetMapping("/list")
 	public String getBoardList(@RequestParam(value = "searchType", defaultValue = "b_title") String searchType,
 							   @RequestParam(value = "searchValue", defaultValue = "") String searchValue,
+							   @RequestParam(value = "pageSize", defaultValue = "10") int pageSize,
 							   @RequestParam(value = "pageValue", defaultValue = "1") int pageValue,
 							   Model model) {
 		List<Board> boards;
 		if (searchType.isEmpty()) {
-
-			boards = boardService.getAll(10, pageValue);
+			boards = boardService.getAll(pageSize, pageValue);
 		} else {
-			boards = boardService.getSearch(searchType, searchValue, 10, pageValue);
+			boards = boardService.getSearch(searchType, searchValue, pageSize, pageValue);
 		}
 		int totalElements = boardService.getTotalElements(searchType, searchValue);
 		Pagination<Board> page = new Pagination<>(boards, pageValue, totalElements);
-		System.out.println(page);
 		model.addAttribute("page", page);
 
 		return "board/list";
