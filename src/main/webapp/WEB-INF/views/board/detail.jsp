@@ -43,18 +43,18 @@
 <body>
 <%@ include file="/WEB-INF/views/templates/header.jsp" %>
 <section>
-	<div class="container">
+	<div class="container custom-container">
 		<div class="row justify-content-center">
 			<div class="col-md-12">
 				<div class="container px-0">
 					<div id="headDiv">
 						<div id="board-list-btn">
-							<a href="${path}/board/list">목록</a>
+							<a href="${path}/board/list" class="btn btn-outline-primary">목록</a>
 						</div>
 						<h2 class="text-center mt-5">게시글 상세</h2>
 						<c:if test="${isSelf || isAdmin}">
 							<div id="button-container">
-								<a href="${path}/board/modify?boardNo=${board.boardNo}" class="btn btn-warning">수정</a>
+								<a href="${path}/board/modify?boardNo=${board.boardNo}" class="btn btn-warning mx-3">수정</a>
 								<a id="deleteBtn" href="${path}/board/delete?boardNo=${board.boardNo}" class="btn btn-danger">삭제</a>
 							</div>
 						</c:if>

@@ -17,7 +17,7 @@
 <section>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-12">
+			<div class="col-md-9">
 				<h2 class="text-center mt-5">게시글 수정</h2>
 				<div id="boardFormDiv">
 					<form action="${path}/board/modify" method="post">
@@ -33,11 +33,11 @@
 							<textarea class="form-control" id="boardBody" name="boardBody" rows="10" placeholder="내용을 입력하세요">${board.boardBody}</textarea>
 						</div>
 						<div class="row text-center mt-4">
-							<div class="col-3"></div>
-							<div class="col-3 px-0">
+							<div class="col-4"></div>
+							<div class="col-2 px-0">
 								<button type="submit" class="px-3 btn btn-primary btn-block">등록</button>
 							</div>
-							<div class="col-3 px-0">
+							<div class="col-2 px-0">
 								<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/board/detail?boardNo=${boardNo}'">취소</button>
 							</div>
 						</div>
