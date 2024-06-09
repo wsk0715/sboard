@@ -20,7 +20,7 @@ public class BoardServiceImpl implements BoardService {
 	public Board get(int boardNo) {
 		return boardMapper.get(boardNo);
 	}
-	
+
 	@Override
 	public List<Board> getAll(int pageSize, int pageValue) {
 		pageValue = (pageValue - 1) * 10;
@@ -31,18 +31,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<Board> getSearch(String searchType, String searchValue, int pageSize, int pageValue) {
 		pageValue = (pageValue - 1) * 10;
-		if (searchType.equals("b_title_body")) {
-			return boardMapper.getSearchMulti(searchValue, 10, pageValue);
-		}
-
+		
 		return boardMapper.getSearch(searchType, searchValue, 10, pageValue);
 	}
 
 	@Override
 	public int getTotalElements(String searchType, String searchValue) {
-		if (searchType.equals("b_title_body")) {
-			return boardMapper.getTotalElementsMulti(searchValue);
-		}
 		return boardMapper.getTotalElements(searchType, searchValue);
 	}
 

@@ -7,6 +7,7 @@ import com.example.sboard.board.domain.Board;
 import com.example.sboard.board.reply.domain.Reply;
 import com.example.sboard.board.reply.service.ReplyService;
 import com.example.sboard.board.service.BoardService;
+import com.example.sboard.service.Pagination;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -34,28 +35,15 @@ public class BoardController {
 							   Model model) {
 		List<Board> boards;
 		if (searchType.isEmpty()) {
+
 			boards = boardService.getAll(10, pageValue);
 		} else {
 			boards = boardService.getSearch(searchType, searchValue, 10, pageValue);
 		}
-
-		int maxPage = (boardService.getTotalElements(searchType, searchValue) - 1) / 10 + 1;
-		int beginPage = Math.max(1, pageValue - 2);
-		int endPage = Math.min(maxPage, pageValue + 2);
-
-		if (endPage - beginPage < 4) {
-			if (beginPage == 1) {
-				endPage = Math.min(beginPage + 4, maxPage);
-			} else {
-				beginPage = Math.max(endPage - 4, 1);
-			}
-		}
-
-		model.addAttribute("boards", boards);
-		model.addAttribute("currentPage", pageValue);
-		model.addAttribute("maxPage", maxPage);
-		model.addAttribute("beginPage", beginPage);
-		model.addAttribute("endPage", endPage);
+		int totalElements = boardService.getTotalElements(searchType, searchValue);
+		Pagination<Board> page = new Pagination<>(boards, pageValue, totalElements);
+		System.out.println(page);
+		model.addAttribute("page", page);
 
 		return "board/list";
 	}

@@ -58,7 +58,7 @@
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="board" items="${boards}">
+						<c:forEach var="board" items="${page.elements}">
 							<tr>
 								<td class="text-center">${board.boardNo}</td>
 								<td>
@@ -75,10 +75,11 @@
 				</div>
 				<div id="pageDiv" class="container d-flex justify-content-center mt-2">
 					<ul class="pagination">
+						<!-- 화살표 버튼(이전) -->
 						<c:choose>
-							<c:when test="${currentPage > 1}">
+							<c:when test="${page.currentPage > 1}">
 								<li class="page-item">
-									<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${currentPage - 1}">
+									<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${page.currentPage - 1}">
 										<span>&laquo;</span>
 									</a>
 								</li>
@@ -89,24 +90,27 @@
 								</li>
 							</c:otherwise>
 						</c:choose>
-						<c:forEach var="i" begin="${beginPage}" end="${endPage}">
-							<li class="page-item ${i == currentPage ? 'active' : ''}">
+						<%-- 페이지 버튼 --%>
+						<c:forEach var="i" begin="${page.beginPage}" end="${page.endPage}">
+							<li class="page-item ${i == page.currentPage ? 'active' : ''}">
 								<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${i}">
 										${i}
 								</a>
 							</li>
 						</c:forEach>
-						<c:if test="${endPage < beginPage + 4}">
-							<c:forEach var="j" begin="1" end="${beginPage + 4 - endPage}">
+						<%-- 빈 페이지 --%>
+						<c:if test="${page.endPage < page.beginPage + 4}">
+							<c:forEach var="j" begin="1" end="${page.beginPage + 4 - page.endPage}">
 								<li class="page-item disabled">
 									<a class="page-link" href="#">&nbsp;</a>
 								</li>
 							</c:forEach>
 						</c:if>
+						<!-- 화살표 버튼(다음) -->
 						<c:choose>
-							<c:when test="${currentPage < maxPage}">
+							<c:when test="${page.currentPage < page.maxPage}">
 								<li class="page-item">
-									<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${currentPage + 1}">
+									<a class="page-link" href="${path}/board/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${page.currentPage + 1}">
 										<span>&raquo;</span>
 									</a>
 								</li>
