@@ -11,9 +11,16 @@ public interface MemberMapper {
 
 	Integer getMemberNoById(String memberId);
 
-	List<Member> getAll();
+	List<Member> getAll(@Param("pageSize") int pageSize,
+						@Param("pageValue") int pageValue);
 
-	List<Member> getSearch(@Param("searchType") String searchType, @Param("searchValue") String searchValue);
+	List<Member> getSearch(@Param("searchType") String searchType,
+						   @Param("searchValue") String searchValue,
+						   @Param("pageSize") int pageSize,
+						   @Param("pageValue") int pageValue);
+
+	int getTotalElements(@Param("searchType") String searchType,
+						 @Param("searchValue") String searchValue);
 
 	int getLastIndex();
 

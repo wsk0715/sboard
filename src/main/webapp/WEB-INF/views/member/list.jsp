@@ -43,7 +43,7 @@
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="member" items="${members}">
+						<c:forEach var="member" items="${page.elements}">
 							<tr>
 								<td class="text-center">${member.memberNo}</td>
 								<td>
@@ -64,7 +64,57 @@
 						</tbody>
 					</table>
 				</div>
-				<div id="searchDiv" class="container d-flex justify-content-center mt-4">
+				<div id="pageDiv" class="container d-flex justify-content-center mt-2">
+					<ul class="pagination">
+						<!-- 화살표 버튼(이전) -->
+						<c:choose>
+							<c:when test="${page.currentPage > 1}">
+								<li class="page-item">
+									<a class="page-link" href="${path}/member/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${page.currentPage - 1}">
+										<span>&laquo;</span>
+									</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item">
+									<span class="page-link">&laquo;</span>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						<%-- 페이지 버튼 --%>
+						<c:forEach var="i" begin="${page.beginPage}" end="${page.endPage}">
+							<li class="page-item ${i == page.currentPage ? 'active' : ''}">
+								<a class="page-link" href="${path}/member/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${i}">
+										${i}
+								</a>
+							</li>
+						</c:forEach>
+						<%-- 빈 페이지 --%>
+						<c:if test="${page.endPage < page.beginPage + 4}">
+							<c:forEach var="j" begin="1" end="${page.beginPage + 4 - page.endPage}">
+								<li class="page-item disabled">
+									<a class="page-link" href="#">&nbsp;</a>
+								</li>
+							</c:forEach>
+						</c:if>
+						<!-- 화살표 버튼(다음) -->
+						<c:choose>
+							<c:when test="${page.currentPage < page.maxPage}">
+								<li class="page-item">
+									<a class="page-link" href="${path}/member/list?searchType=${param.searchType}&searchValue=${param.searchValue}&pageValue=${page.currentPage + 1}">
+										<span>&raquo;</span>
+									</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item">
+									<span class="page-link">&raquo;</span>
+								</li>
+							</c:otherwise>
+						</c:choose>
+					</ul>
+				</div>
+				<div id="searchDiv" class="container d-flex justify-content-center mt-2">
 					<div class="col-6">
 						<div id="searchFormDiv" class="input-group w-100 justify-content-center">
 							<form id="searchForm" action="${path}/member/list" class="d-flex" method="get">

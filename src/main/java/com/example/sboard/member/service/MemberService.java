@@ -9,9 +9,11 @@ public interface MemberService {
 
 	Integer getMemberNoById(String memberId);
 
-	List<Member> getAll();
+	List<Member> getAll(int pageSize, int pageValue);
 
-	List<Member> getSearch(String searchType, String searchValue);
+	List<Member> getSearch(String searchType, String searchValue, int pageSize, int pageValue);
+	
+	int getTotalElements(String searchType, String searchValue);
 
 	int getLastIndex();
 

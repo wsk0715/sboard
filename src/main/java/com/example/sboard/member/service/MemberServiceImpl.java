@@ -27,13 +27,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<Member> getAll() {
-		return memberMapper.getAll();
+	public List<Member> getAll(int pageSize, int pageValue) {
+		pageValue = (pageValue - 1) * pageSize;
+
+		return memberMapper.getAll(pageSize, pageValue);
 	}
 
 	@Override
-	public List<Member> getSearch(String searchType, String searchValue) {
-		return memberMapper.getSearch(searchType, searchValue);
+	public List<Member> getSearch(String searchType, String searchValue, int pageSize, int pageValue) {
+		pageValue = (pageValue - 1) * pageSize;
+
+		return memberMapper.getSearch(searchType, searchValue, pageSize, pageValue);
+	}
+
+	@Override
+	public int getTotalElements(String searchType, String searchValue) {
+		return memberMapper.getTotalElements(searchType, searchValue);
 	}
 
 	@Override

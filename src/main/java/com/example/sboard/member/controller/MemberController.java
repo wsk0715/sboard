@@ -5,6 +5,7 @@ import static com.example.sboard.utils.PermissionValidator.validateIsSelf;
 
 import com.example.sboard.member.domain.Member;
 import com.example.sboard.member.service.MemberService;
+import com.example.sboard.service.Pagination;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -28,17 +29,21 @@ public class MemberController {
 	public String getMemberList(HttpSession session,
 								@RequestParam(value = "searchType", defaultValue = "") String searchType,
 								@RequestParam(value = "searchValue", defaultValue = "") String searchValue,
+								@RequestParam(value = "pageSize", defaultValue = "10") int pageSize,
+								@RequestParam(value = "pageValue", defaultValue = "1") int pageValue,
 								Model model) {
 		if (!validateIsAdmin(session)) {
 			return "redirect:/error/permission";
 		}
 		List<Member> members;
 		if (searchType.isEmpty()) {
-			members = memberService.getAll();
+			members = memberService.getAll(pageSize, pageValue);
 		} else {
-			members = memberService.getSearch(searchType, searchValue);
+			members = memberService.getSearch(searchType, searchValue, pageSize, pageValue);
 		}
-		model.addAttribute("members", members);
+		int totalElements = memberService.getTotalElements(searchType, searchValue);
+		Pagination<Member> page = new Pagination<>(members, pageValue, totalElements);
+		model.addAttribute("page", page);
 
 		return "member/list";
 	}

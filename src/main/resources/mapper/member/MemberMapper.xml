@@ -28,14 +28,38 @@
 
   <select id="getAll" resultMap="MemberResultMap">
     SELECT m_no, m_level, m_id, m_pw, m_name, m_email
-    FROM tb_member;
+    FROM tb_member
+    LIMIT #{pageSize} OFFSET #{pageValue};
   </select>
 
   <select id="getSearch" resultMap="MemberResultMap">
     SELECT m_no, m_level, m_id, m_pw, m_name, m_email
     FROM tb_member
-    WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%');
+    <where>
+      <include refid="searchTargetCondition"/>
+    </where>
+    LIMIT #{pageSize} OFFSET ${pageValue};
   </select>
+
+  <select id="getTotalElements" resultType="int">
+    SELECT COUNT(1)
+    FROM tb_member
+    <where>
+      <include refid="searchTargetCondition"/>
+    </where>
+  </select>
+
+  <sql id="searchTargetCondition">
+    <if test="searchType == 'm_id'">
+      m_id LIKE CONCAT('%', #{searchValue}, '%')
+    </if>
+    <if test="searchType == 'm_name'">
+      m_name LIKE CONCAT('%', #{searchValue}, '%')
+    </if>
+    <if test="searchType == 'm_email'">
+      m_email LIKE CONCAT('%', #{searchValue}, '%')
+    </if>
+  </sql>
 
   <select id="getLastIndex" resultType="int">
     SELECT COALESCE(MAX(m_no) + 1, 1)
