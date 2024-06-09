@@ -6,7 +6,9 @@ import java.util.List;
 public interface ReplyService {
 	Reply get(int replyNo);
 
-	List<Reply> getAllByBoardNo(int boardNo);
+	List<Reply> getAllByBoardNo(int boardNo, int pageSize, int pageValue);
+
+	int getTotalElements(int boardNo);
 
 	int getLastIndex();
 

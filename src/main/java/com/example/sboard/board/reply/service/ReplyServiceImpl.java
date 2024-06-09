@@ -22,8 +22,14 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<Reply> getAllByBoardNo(int boardNo) {
-		return replyMapper.getAllByBoardNo(boardNo);
+	public List<Reply> getAllByBoardNo(int boardNo, int pageSize, int pageValue) {
+		pageValue = (pageValue - 1) * pageSize;
+		return replyMapper.getAllByBoardNo(boardNo, pageSize, pageValue);
+	}
+
+	@Override
+	public int getTotalElements(int boardNo) {
+		return replyMapper.getTotalElements(boardNo);
 	}
 
 	@Override

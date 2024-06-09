@@ -22,6 +22,14 @@
   <select id="getAllByBoardNo" parameterType="int" resultMap="ReplyResultMap">
     SELECT r_no, b_no, m_id, r_body, r_date
     FROM tb_reply
+    WHERE b_no = #{boardNo}
+    ORDER BY r_no DESC
+    LIMIT #{pageSize} OFFSET #{pageValue};
+  </select>
+
+  <select id="getTotalElements" resultType="int">
+    SELECT COUNT(1)
+    FROM tb_reply
     WHERE b_no = #{boardNo};
   </select>
 

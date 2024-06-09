@@ -48,12 +48,17 @@ public class BoardController {
 	}
 
 	@GetMapping("/detail")
-	public String getBoardDetail(int boardNo, Model model) {
+	public String getBoardDetail(int boardNo,
+								 @RequestParam(value = "pageValue", defaultValue = "1") int pageValue,
+								 Model model) {
 		Board board = boardService.get(boardNo);
 		model.addAttribute("board", board);
 
-		List<Reply> replies = replyService.getAllByBoardNo(boardNo);
-		model.addAttribute("replies", replies);
+		List<Reply> replies = replyService.getAllByBoardNo(boardNo, 10, pageValue);
+		int totalElements = replyService.getTotalElements(boardNo);
+		Pagination<Reply> page = new Pagination<>(replies, pageValue, totalElements);
+
+		model.addAttribute("page", page);
 
 		return "board/detail";
 	}
