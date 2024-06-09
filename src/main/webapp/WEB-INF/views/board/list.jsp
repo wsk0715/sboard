@@ -75,7 +75,7 @@
 				</div>
 				<div id="searchDiv" class="container d-flex justify-content-center mt-4">
 					<div class="col-6">
-						<div id="searchFormDiv" class="input-group w-100">
+						<div id="searchFormDiv" class="input-group w-100 justify-content-center">
 							<form id="searchForm" action="${path}/board/list" class="d-flex" method="get">
 								<select id="searchType" name="searchType" class="form-select w-auto">
 									<option value="b_title">제목</option>

@@ -32,6 +32,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public List<Member> getSearch(String searchType, String searchValue) {
+		return memberMapper.getSearch(searchType, searchValue);
+	}
+
+	@Override
 	public int getLastIndex() {
 		return memberMapper.getLastIndex();
 	}

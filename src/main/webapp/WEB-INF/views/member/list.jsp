@@ -64,6 +64,21 @@
 						</tbody>
 					</table>
 				</div>
+				<div id="searchDiv" class="container d-flex justify-content-center mt-4">
+					<div class="col-6">
+						<div id="searchFormDiv" class="input-group w-100 justify-content-center">
+							<form id="searchForm" action="${path}/member/list" class="d-flex" method="get">
+								<select id="searchType" name="searchType" class="form-select w-auto">
+									<option value="m_id">아이디</option>
+									<option value="m_name">이름</option>
+									<option value="m_email">이메일</option>
+								</select>
+								<input type="text" id="searchValue" name="searchValue" class="form-control">
+								<button type="submit" class="btn btn-outline-primary w-25">검색</button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

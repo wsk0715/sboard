@@ -11,6 +11,8 @@ public interface MemberService {
 
 	List<Member> getAll();
 
+	List<Member> getSearch(String searchType, String searchValue);
+
 	int getLastIndex();
 
 	void register(Member member);

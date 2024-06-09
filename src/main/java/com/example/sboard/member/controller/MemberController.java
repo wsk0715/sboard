@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/member")
@@ -24,12 +25,19 @@ public class MemberController {
 
 
 	@GetMapping("/list")
-	public String getMemberList(HttpSession session, Model model) {
+	public String getMemberList(HttpSession session,
+								@RequestParam(value = "searchType", defaultValue = "") String searchType,
+								@RequestParam(value = "searchValue", defaultValue = "") String searchValue,
+								Model model) {
 		if (!validateIsAdmin(session)) {
 			return "redirect:/error/permission";
 		}
-
-		List<Member> members = memberService.getAll();
+		List<Member> members;
+		if (searchType.isEmpty()) {
+			members = memberService.getAll();
+		} else {
+			members = memberService.getSearch(searchType, searchValue);
+		}
 		model.addAttribute("members", members);
 
 		return "member/list";

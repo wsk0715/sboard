@@ -31,6 +31,12 @@
     FROM tb_member;
   </select>
 
+  <select id="getSearch" resultMap="MemberResultMap">
+    SELECT m_no, m_level, m_id, m_pw, m_name, m_email
+    FROM tb_member
+    WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%');
+  </select>
+
   <select id="getLastIndex" resultType="int">
     SELECT COALESCE(MAX(m_no) + 1, 1)
     FROM tb_member;
