@@ -10,7 +10,10 @@
 		<c:set var="isAdmin" value="${sessionScope.sessionLevel > 1}" />
 		<div class="list-group-item rounded mt-3" style="position: relative;">
 			<p>${reply.replyBody}</p>
-			<small class="text-muted"><b>${reply.memberId}</b> | ${reply.replyDate}</small>
+			<small class="text-muted">
+				<a href="${path}/board/list?searchType=m_id&searchValue=${reply.memberId}"><b>${reply.memberId}</b></a>
+				| ${reply.replyDate}
+			</small>
 			<c:if test="${isSelf || isAdmin}">
 				<div class="text-right" style="position: absolute; top: 1.5rem; right: 0.5rem">
 					<a id="deleteBtn" href="${path}/board/reply/delete?replyNo=${reply.replyNo}" class="btn btn-danger btn-m">삭제</a>

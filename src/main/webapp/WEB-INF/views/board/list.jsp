@@ -64,7 +64,9 @@
 								<td>
 									<a href="${path}/board/detail?boardNo=${board.boardNo}">${board.boardTitle}</a>
 								</td>
-								<td class="text-center">${board.memberId}</td>
+								<td class="text-center">
+									<a href="${path}/board/list?searchType=m_id&searchValue=${board.memberId}">${board.memberId}</a>
+								</td>
 								<td class="text-center">${board.boardDate}</td>
 							</tr>
 						</c:forEach>

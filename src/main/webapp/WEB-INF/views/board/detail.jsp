@@ -66,7 +66,9 @@
 							<div class="row mb-2">
 								<div class="col-6 d-flex">
 									<div class="custom-colname">작성자</div>
-									<div class="flex-grow-1">${board.memberId}</div>
+									<div class="flex-grow-1">
+										<a href="${path}/board/list?searchType=m_id&searchValue=${board.memberId}">${board.memberId}</a>
+									</div>
 								</div>
 								<div class="col-6 d-flex">
 									<div class="custom-colname">작성일</div>
