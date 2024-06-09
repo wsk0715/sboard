@@ -38,7 +38,7 @@
 								<button type="submit" class="px-3 btn btn-primary btn-block">등록</button>
 							</div>
 							<div class="col-2 px-0">
-								<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/board/detail?boardNo=${boardNo}'">취소</button>
+								<button type="button" class="px-3 btn btn-secondary btn-block" onclick="location.href='${path}/board/detail?boardNo=${board.boardNo}'">취소</button>
 							</div>
 						</div>
 					</form>
